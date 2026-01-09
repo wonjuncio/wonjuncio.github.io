@@ -77,7 +77,7 @@ bundle exec jekyll serve
 
 ## 📬 Contact
 
-- **Email**: rich4103@gmail.com
+- **Email**: wonjun.choi@snu.ac.kr
 - **GitHub**: [@wonjuncio](https://github.com/wonjuncio)
 
 ---
