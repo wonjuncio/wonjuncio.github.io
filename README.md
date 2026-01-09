@@ -1,94 +1,89 @@
 <div align="center">
 
-  # Chirpy Jekyll Theme
+<img src="./assets/img/avatar/pomvonpurin_study_real.png" alt="avatar" width="150"/>
 
-  A minimal, responsive, and feature-rich Jekyll theme for technical writing.
+# Wonjun Choi's Tech Blog
 
-  [![Gem Version](https://img.shields.io/gem/v/jekyll-theme-chirpy?color=brightgreen)][gem]&nbsp;
-  [![CI](https://github.com/cotes2020/jekyll-theme-chirpy/actions/workflows/ci.yml/badge.svg?branch=master&event=push)][ci]&nbsp;
-  [![Codacy Badge](https://app.codacy.com/project/badge/Grade/4e556876a3c54d5e8f2d2857c4f43894)][codacy]&nbsp;
-  [![GitHub license](https://img.shields.io/github/license/cotes2020/jekyll-theme-chirpy.svg)][license]&nbsp;
-  [![996.icu](https://img.shields.io/badge/link-996.icu-%23FF4D5B.svg)](https://996.icu)
+**내가 보려고 만든 블로그** 📚
 
-  [**Live Demo →**][demo]
-
-  [![Devices Mockup](https://chirpy-img.netlify.app/commons/devices-mockup.png)][demo]
+[![GitHub](https://img.shields.io/badge/GitHub-wonjuncio-181717?style=flat-square&logo=github)](https://github.com/wonjuncio)
+[![Blog](https://img.shields.io/badge/Blog-Visit-4285F4?style=flat-square&logo=google-chrome&logoColor=white)](https://wonjuncio.github.io)
 
 </div>
 
-## Features
+---
 
-<details>
-  <summary>Click to expand/close details</summary>
-  &nbsp;
+## 🧑‍💻 About
 
-- Dark / Light Theme Mode
-- Localized UI language
-- Pinned Posts on Home Page
-- Hierarchical Categories
-- Trending Tags
-- Table of Contents
-- Last Modified Date
-- Syntax Highlighting
-- Mathematical Expressions
-- Mermaid Diagrams & Flowcharts
-- Dark / Light Mode Images
-- Embed Videos
-- Disqus / Giscus / Utterances Comments
-- Built-in Search
-- Atom Feeds
-- PWA
-- Google Analytics
-- SEO & Performance Optimization
+다양한 프로그래밍 관련 공부 기록을 남기는 개인 기술 블로그입니다.
 
-</details>
 
-## Documentation
+## 🛠️ Tech Stack
 
-To learn how to use, develop, and upgrade the project, please refer to the [Wiki][wiki].
+- **Static Site Generator**: [Jekyll](https://jekyllrb.com/)
+- **Theme**: [Chirpy](https://github.com/cotes2020/jekyll-theme-chirpy)
+- **Hosting**: [GitHub Pages](https://pages.github.com/)
+- **Comments**: [Giscus](https://giscus.app/)
 
-## Contributing
+## 🚀 Local Development
 
-Contributions (_pull requests_, _issues_, and _discussions_) are what make the open-source community such an amazing place
-to learn, inspire, and create. Any contributions you make are greatly appreciated.
-For details, see the "[Contributing Guidelines][contribute-guide]".
+> Ruby 3.2.x 버전 사용 권장
 
-## Credits
+```bash
+# Ruby 설치 후 버전 확인
+ruby -v
 
-This project was built primarily with the [Jekyll][jekyllrb] ecosystem,
-[Bootstrap][bootstrap], [Font Awesome][icons], and some other [wonderful tools][lib].
-The avatar and favicon design from [Clipart Max][image].
+# Bundler 설치
+gem install bundler
 
-Many thanks to the [contributors][contributors] who participated in the development
-and to the folks who reported bugs or shared ideas.
+# Bundler 버전 확인
+bundle -v
 
-Last but not least, thanks to [JetBrains][jetbrains] for providing the _Open Source License_.
+# Ruby dependencies 설치
+bundle install
 
-## Sponsoring
+# Node.js dependencies 설치
+npm install && npm run build
 
-If you like this project or have built something through it, please consider sponsoring it, and your support would be greatly appreciated.
+# 로컬 서버 실행
+bundle exec jekyll serve
+```
 
-[![Ko-fi](https://img.shields.io/badge/Support_Me_on_Ko--fi-ff5e5b?logo=ko-fi&logoColor=white)][ko-fi]&nbsp;
-[![Wechat Pay](https://img.shields.io/badge/Support_Me_on_WeChat-brightgreen?logo=wechat&logoColor=white)][donation]&nbsp;
-[![Alipay](https://img.shields.io/badge/Support_Me_on_Alipay-blue?logo=alipay&logoColor=white)][donation]
+서버 실행 후 `http://127.0.0.1:4000/` 에서 확인 가능
 
-## License
+## 📝 Commit Convention
 
-This project is published under [MIT License][license].
+```
+<emoji> <VERB> <object>
+```
 
-[gem]: https://rubygems.org/gems/jekyll-theme-chirpy
-[ci]: https://github.com/cotes2020/jekyll-theme-chirpy/actions/workflows/ci.yml?query=event%3Apush+branch%3Amaster
-[codacy]: https://app.codacy.com/gh/cotes2020/jekyll-theme-chirpy/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade
-[license]: https://github.com/cotes2020/jekyll-theme-chirpy/blob/master/LICENSE
-[jekyllrb]: https://jekyllrb.com/
-[bootstrap]: https://getbootstrap.com/
-[icons]: https://fontawesome.com/
-[image]: https://www.clipartmax.com/middle/m2i8b1m2K9Z5m2K9_ant-clipart-childrens-ant-cute/
-[demo]: https://cotes2020.github.io/chirpy-demo/
-[wiki]: https://github.com/cotes2020/jekyll-theme-chirpy/wiki
-[contribute-guide]: https://github.com/cotes2020/jekyll-theme-chirpy/blob/master/docs/CONTRIBUTING.md
-[contributors]: https://github.com/cotes2020/jekyll-theme-chirpy/graphs/contributors
-[lib]: https://github.com/cotes2020/chirpy-static-assets
-[jetbrains]: https://www.jetbrains.com/?from=jekyll-theme-chirpy
-[ko-fi]: https://ko-fi.com/coteschung/
-[donation]: https://sponsor.cotes.page/
+| Emoji | Code | 용도 |
+|:-----:|------|-----|
+| ✨ | `:sparkles:` | 새 포스트/콘텐츠 추가 |
+| 📝 | `:memo:` | 기존 내용 수정/보완 |
+| 🐛 | `:bug:` | 오타, 잘못된 내용 수정 |
+| 🔧 | `:wrench:` | 설정/빌드 관련 수정 |
+| 🎨 | `:art:` | 스타일/구조 개선 |
+| 🗑️ | `:wastebasket:` | 삭제 |
+
+**예시:**
+```
+✨ ADD Python metaclass post
+📝 UPDATE GCN equation section
+🐛 FIX typo in adjacency matrix
+🔧 FIX jekyll config url
+🎨 REFACTOR post structure
+```
+
+## 📬 Contact
+
+- **Email**: rich4103@gmail.com
+- **GitHub**: [@wonjuncio](https://github.com/wonjuncio)
+
+---
+
+<div align="center">
+
+Made with ☕ by **Wonjun Choi**
+
+</div>
