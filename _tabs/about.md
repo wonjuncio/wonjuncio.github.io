@@ -4,5 +4,13 @@ icon: fas fa-info-circle
 order: 4
 ---
 
-> Add Markdown syntax content to file `_tabs/about.md`{: .filepath } and it will show up on this page.
-{: .prompt-tip }
+<div class="about-page">
+  <div class="tab-container">
+    {% include about/tabs.html %}
+    {% include about/about-content.html %}
+    {% include about/cv-content.html %}
+    {% include about/pub-content.html %}
+  </div>
+</div>
+
+<script src="/assets/js/about.js"></script>

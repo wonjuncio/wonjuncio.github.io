@@ -1,0 +1,257 @@
+// About page styles
+// ===================
+
+.about-page {
+  .tab-container {
+    margin: 2rem 0;
+  }
+
+  .tab-nav {
+    display: flex;
+    gap: 0.5rem;
+    border-bottom: 2px solid var(--border-color);
+    margin-bottom: 1.5rem;
+  }
+
+  .tab-btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-muted-color);
+    border-bottom: 3px solid transparent;
+    margin-bottom: -2px;
+    transition: all 0.2s ease;
+
+    &:hover {
+      color: var(--link-color);
+    }
+
+    &.active {
+      color: var(--link-color);
+      border-bottom-color: var(--link-color);
+    }
+  }
+
+  .tab-content {
+    display: none;
+    animation: fadeIn 0.3s ease;
+
+    &.active {
+      display: block;
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  // Profile section
+  .profile-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+
+    @media (max-width: 576px) {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+
+  .profile-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--border-color);
+  }
+
+  .profile-info {
+    h2 {
+      margin: 0 0 0.5rem 0;
+    }
+
+    p {
+      margin: 0;
+      color: var(--text-muted-color);
+    }
+  }
+
+  // Section titles
+  .section-title {
+    font-size: 1.25rem;
+    margin: 2.5rem 0 1rem 0;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+
+    &:first-of-type {
+      margin-top: 1.5rem;
+    }
+  }
+
+  // CV Section
+  .cv-section {
+    max-width: 820px;
+    margin-bottom: 1rem;
+  }
+
+  // Timeline list
+  .timeline-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-left: 40px;
+    position: relative;
+  }
+
+  // Timeline items
+  .timeline-item {
+    position: relative;
+
+    &:not(:last-child) {
+      margin-bottom: 16px;
+    }
+
+    // dot (::after)
+    &::after {
+      content: "";
+      position: absolute;
+      left: -32px;
+      top: 4px;
+      width: 16px;
+      height: 16px;
+      background: var(--main-bg, #14161a);
+      border: 2.5px solid var(--link-color);
+      border-radius: 50%;
+      box-shadow: 0 0 0 4px rgba(var(--link-color-rgb, 99, 102, 241), 0.12);
+      z-index: 2;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    // line (::before) - 마지막 아이템 제외
+    &:not(:last-child)::before {
+      content: "";
+      position: absolute;
+      left: -25px;
+      top: 24px;
+      bottom: -16px;
+      width: 2px;
+      background: var(--link-color);
+      opacity: 0.35;
+      border-radius: 999px;
+      z-index: 1;
+    }
+
+    // hover
+    &:hover::after {
+      transform: scale(1.1);
+      box-shadow: 0 0 0 6px rgba(var(--link-color-rgb, 99, 102, 241), 0.2);
+    }
+  }
+
+  // Timeline text styles
+  .timeline-item-title {
+    font-weight: 600;
+    font-size: 1.05rem;
+    margin-bottom: 4px;
+    color: var(--heading-color, inherit);
+  }
+
+  .timeline-meta {
+    display: inline-block;
+    font-size: 0.85rem;
+    color: var(--link-color);
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+
+  .timeline-text {
+    font-size: 0.9rem;
+    color: var(--text-muted-color);
+    margin: 4px 0 0;
+
+    &.detail {
+      font-style: italic;
+      opacity: 0.85;
+
+      a {
+        color: var(--link-color);
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  // Publication items
+  .pub-item {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: var(--card-bg);
+    border-radius: 8px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    h4 {
+      margin: 0 0 0.5rem 0;
+
+      a {
+        color: inherit;
+        text-decoration: none;
+
+        &:hover {
+          color: var(--link-color);
+        }
+      }
+    }
+
+    .authors {
+      font-size: 0.9rem;
+      color: var(--text-muted-color);
+    }
+
+    .venue {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--link-color);
+    }
+  }
+
+  // Contact list
+  .contact-list {
+    list-style: none;
+    padding: 0;
+    margin-left: 1.5rem;
+
+    li {
+      margin-bottom: 0.6rem;
+
+      i {
+        width: 1.25rem;
+        margin-right: 0.5rem;
+        color: var(--text-muted-color);
+      }
+    }
+
+    a {
+      color: var(--link-color);
+    }
+  }
+}
+
