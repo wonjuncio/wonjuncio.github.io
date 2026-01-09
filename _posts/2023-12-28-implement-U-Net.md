@@ -2,7 +2,7 @@
 title: U-net 구현 - 자동차 파손 인식
 date: 2023-12-28 22:29:00 +0800
 categories: [AI, Segmentation]
-tags: [semantic segmentation, car damage, ai model, computer vision, image processing, deep learning, neural networks, Python, pytorch, image segmentation, machine learning, object detection, data preprocessing, model training, computer science]
+tags: [semantic segmentation, car damage, ai model, computer vision, image processing, deep learning, neural networks, python, pytorch, image segmentation, machine learning, object detection, data preprocessing, model training, computer science]
 use_math: true
 ---
 # 차량 파손 탐지 모델
