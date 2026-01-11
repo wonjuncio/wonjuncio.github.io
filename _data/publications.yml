@@ -1,0 +1,37 @@
+# Publications Data
+# =================
+# 논문 추가 시 이 파일만 수정하면 됩니다.
+# date 기준 자동 정렬 (최신순)
+#
+# 카테고리: international conferences, workshops, pre-prints
+# ---------------------------------------------------------
+
+- id: P1
+  title: "Towards a predictive model of low-dose x-ray diffraction image quality"
+  authors: ["alexander wu", "Wonjun Choi", "james parker", "hugh williams"]
+  me: 1
+  venue: "Under review"
+  category: "pre-prints"
+  date: 2025-01-01
+  url: "https://arxiv.org/abs/2508.00327"
+  image: "/assets/img/publications/publication_sample.png"
+
+- id: C1
+  title: "Conference Paper Title"
+  authors: ["Wonjun Choi", "Co-author Name"]
+  me: 0
+  venue: "Conference Name 2025"
+  category: "international conferences"
+  date: 2025-06-01
+  url: "#"
+  image: "/assets/img/publications/publication_sample.png"
+
+- id: W1
+  title: "Workshop Paper Title"
+  authors: ["Wonjun Choi", "Co-author Name"]
+  me: 0
+  venue: "Workshop @ Conference 2025"
+  category: "workshops"
+  date: 2025-05-01
+  url: "#"
+  image: "/assets/img/publications/publication_sample.png"
