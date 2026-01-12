@@ -5,10 +5,7 @@ icon: fas fa-file-alt
 order: 2
 ---
 
-<div class="publications-page">
-  <header class="pub-header">
-    <p class="pub-intro">My research publications in AI4Materials, computational materials science, and machine learning.</p>
-  </header>
+<div id="publications" class="tab-content">
 
   <section class="pub-section">
     <!-- Desktop filter tabs -->
@@ -43,7 +40,7 @@ order: 2
       </ul>
     </div>
 
-    <!-- Publication cards -->
+    <!-- Publication cards (auto-generated from _data/publications.yml) -->
     <ul class="pub-list">
       {% assign sorted_pubs = site.data.publications | sort: "date" | reverse %}
       {% for pub in sorted_pubs %}
@@ -67,6 +64,7 @@ order: 2
       </li>
       {% endfor %}
     </ul>
+
   </section>
 </div>
 
