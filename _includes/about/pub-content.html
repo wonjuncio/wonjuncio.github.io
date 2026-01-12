@@ -41,7 +41,7 @@
       {% assign sorted_pubs = site.data.publications | sort: "date" | reverse %}
       {% for pub in sorted_pubs %}
       <li class="pub-card active" data-filter-item data-category="{{ pub.category }}">
-        <a href="{{ pub.url }}" target="_blank" rel="noopener">
+        <a href="{{ pub.url }}">
           <figure class="pub-img">
             <div class="pub-icon-box">
               <i class="fas fa-eye"></i>
