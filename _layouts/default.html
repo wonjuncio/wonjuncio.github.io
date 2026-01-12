@@ -109,15 +109,43 @@ layout: compress
         if (mobileMenuTrigger) mobileMenuTrigger.setAttribute('aria-expanded', 'false');
       };
 
+      const searchResults = document.getElementById('search-results');
+
       const closeSearch = () => {
         if (!searchWrapper) return;
         searchWrapper.classList.remove('active');
         if (searchTrigger) searchTrigger.setAttribute('aria-expanded', 'false');
+        // Clear search input and results
+        if (searchInput) searchInput.value = '';
+        if (searchResults) searchResults.innerHTML = '';
+      };
+
+      // Helper for iOS touch events - debounced to prevent double firing
+      const addTapHandler = (element, handler) => {
+        if (!element) return;
+        let lastTapTime = 0;
+        
+        const wrappedHandler = (e) => {
+          const now = Date.now();
+          if (now - lastTapTime < 300) return; // Debounce 300ms
+          lastTapTime = now;
+          handler(e);
+        };
+        
+        // For iOS: use touchend with passive listener
+        element.addEventListener('touchend', (e) => {
+          // Check if it's a tap (not a scroll)
+          if (e.cancelable) e.preventDefault();
+          wrappedHandler(e);
+        }, { passive: false });
+        
+        // For desktop: use click
+        element.addEventListener('click', wrappedHandler);
       };
 
       if (mobileMenuTrigger && mobileMenu) {
         mobileMenuTrigger.setAttribute('aria-expanded', 'false');
-        mobileMenuTrigger.addEventListener('click', () => {
+        addTapHandler(mobileMenuTrigger, () => {
           const isOpen = mobileMenu.classList.toggle('active');
           mobileMenuTrigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
           if (searchWrapper) searchWrapper.classList.remove('active');
@@ -126,23 +154,23 @@ layout: compress
       
       if (searchTrigger && searchWrapper) {
         searchTrigger.setAttribute('aria-expanded', 'false');
-        searchTrigger.addEventListener('click', () => {
+        addTapHandler(searchTrigger, () => {
           const isOpen = searchWrapper.classList.toggle('active');
           searchTrigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
           closeMobileMenu();
           if (searchInput && searchWrapper.classList.contains('active')) {
-            searchInput.focus();
+            setTimeout(() => searchInput.focus(), 100);
           }
         });
       }
       
-      if (searchCancel && searchWrapper) {
-        searchCancel.addEventListener('click', () => {
+      if (searchCancel) {
+        addTapHandler(searchCancel, () => {
           closeSearch();
         });
       }
 
-      // Close menus on outside click
+      // Close menus on outside click only (not touchend to avoid conflicts)
       document.addEventListener('click', (e) => {
         if (navbar && !navbar.contains(e.target)) {
           closeMobileMenu();

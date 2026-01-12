@@ -100,8 +100,8 @@ $navbar-border: var(--border-color);
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 44px;  // iOS minimum touch target
+  height: 44px;
   padding: 0;
   border: none;
   background: transparent;
@@ -109,14 +109,22 @@ $navbar-border: var(--border-color);
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.2s ease;
+  
+  // iOS Safari touch fixes
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
 
-  &:hover {
+  &:hover,
+  &:active {
     color: var(--heading-color);
     background: var(--btn-paginator-hover-color);
   }
 
   i {
-    font-size: 1rem;
+    font-size: 1.1rem;
+    pointer-events: none;  // Prevent icon from capturing touch events
   }
 }
 
@@ -131,13 +139,14 @@ $navbar-border: var(--border-color);
 // Search Wrapper
 .search-wrapper {
   display: none;
-  position: absolute;
-  top: 100%;
+  position: fixed;
+  top: $navbar-height;
   left: 0;
   right: 0;
   padding: 1rem 1.5rem;
   background: $navbar-bg;
   border-bottom: 1px solid $navbar-border;
+  z-index: 999;
 
   &.active {
     display: block;
@@ -181,22 +190,80 @@ $navbar-border: var(--border-color);
   font-size: 0.9rem;
   cursor: pointer;
   transition: opacity 0.2s ease;
+  
+  // iOS Safari touch fixes
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
 
-  &:hover {
+  &:hover,
+  &:active {
     opacity: 0.7;
+  }
+}
+
+// Navbar Search Results
+.navbar-search-results {
+  max-width: 600px;
+  margin: 1rem auto 0;
+  color: var(--text-muted-color);
+  text-align: center;
+
+  // No results text
+  > p {
+    padding: 1rem 0;
+    margin: 0;
+  }
+
+  // Result articles
+  > article {
+    text-align: left;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid $navbar-border;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    h2 {
+      font-size: 1rem;
+      margin: 0 0 0.25rem;
+
+      a {
+        color: var(--heading-color);
+        text-decoration: none;
+
+        &:hover {
+          color: var(--link-color);
+        }
+      }
+    }
+
+    .post-meta {
+      font-size: 0.8rem;
+      color: var(--text-muted-color);
+    }
+
+    p {
+      font-size: 0.85rem;
+      margin: 0.5rem 0 0;
+      color: var(--text-color);
+    }
   }
 }
 
 // Mobile Menu
 .mobile-menu {
   display: none;
-  position: absolute;
-  top: 100%;
+  position: fixed;
+  top: $navbar-height;
   left: 0;
   right: 0;
   padding: 1rem;
   background: $navbar-bg;
   border-bottom: 1px solid $navbar-border;
+  z-index: 998;
 
   &.active {
     display: block;
@@ -217,13 +284,18 @@ $navbar-border: var(--border-color);
   font-size: 0.95rem;
   border-radius: 8px;
   transition: all 0.2s ease;
+  
+  // iOS Safari touch fixes
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+  touch-action: manipulation;
 
   i {
     width: 1.25rem;
     text-align: center;
   }
 
-  &:hover {
+  &:hover,
+  &:active {
     color: var(--heading-color);
     background: var(--btn-paginator-hover-color);
     text-decoration: none;

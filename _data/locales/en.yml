@@ -25,7 +25,7 @@ tabs:
 search:
   hint: search
   cancel: Cancel
-  no_results: Oops! No results found.
+  no_results: No results.
 
 panel:
   lastmod: Recently Updated
