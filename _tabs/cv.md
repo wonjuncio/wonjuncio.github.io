@@ -12,7 +12,7 @@ order: 3
       <p class="cv-role">Ph.D. Student in Materials Science & Engineering</p>
       <p class="cv-focus">Graph ML for Materials · AI4Materials · Computational Discovery</p>
     </div>
-    <a href="/assets/cv/cv.pdf" target="_blank" class="cv-download-btn">
+    <a href="/assets/cv.pdf" target="_blank" class="cv-download-btn">
       <i class="fas fa-download"></i>
       Download PDF
     </a>
