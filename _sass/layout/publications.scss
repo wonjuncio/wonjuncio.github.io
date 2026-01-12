@@ -1,0 +1,293 @@
+// Publications page styles
+// ====================
+
+// Publications page (standalone)
+#publications.tab-content,
+.publications-page {
+  max-width: 900px;
+  margin: 0 auto;
+  display: block;
+
+  .pub-header {
+    margin-bottom: 2rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+    color: var(--heading-color, inherit);
+  }
+
+  .pub-intro {
+    font-size: 1rem;
+    color: var(--text-muted-color);
+    margin: 0;
+  }
+
+  .pub-section {
+    margin-top: 1rem;
+  }
+
+  // Filter tabs (Desktop)
+  .filter-list {
+    display: none;
+    list-style: none;
+    margin: 0 0 1.5rem 0;
+    padding: 0;
+    gap: 1.25rem;
+    align-items: center;
+
+    @media (min-width: 768px) {
+      display: flex;
+    }
+  }
+
+  .filter-item button {
+    background: transparent;
+    border: none;
+    padding: 0.5rem 0.25rem;
+    color: var(--text-muted-color);
+    font-size: 0.9rem;
+    font-weight: 400;
+    cursor: pointer;
+    position: relative;
+    transition: color 0.15s ease;
+
+    &:hover {
+      color: var(--heading-color, inherit);
+    }
+
+    &.active {
+      color: var(--link-color);
+      font-weight: 500;
+
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 2px;
+        border-radius: 999px;
+        background: var(--link-color);
+      }
+    }
+  }
+
+  // Filter select (Mobile)
+  .filter-select-box {
+    display: block;
+    position: relative;
+    margin-bottom: 1.5rem;
+
+    @media (min-width: 768px) {
+      display: none;
+    }
+  }
+
+  .filter-select {
+    background: var(--card-bg, #1a1a2e);
+    color: var(--text-muted-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: border-color 0.15s ease;
+
+    &:hover {
+      border-color: var(--link-color);
+    }
+
+    &.active {
+      border-color: var(--link-color);
+
+      .select-icon {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  .select-icon {
+    transition: transform 0.2s ease;
+  }
+
+  // Publication Cards Grid
+  .pub-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    list-style: none;
+    margin: 0 0 10px;
+    padding: 0;
+    align-items: start;
+  }
+
+  @media (min-width: 768px) {
+    .pub-list { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (min-width: 1100px) {
+    .pub-list { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  // Card visibility
+  .pub-card {
+    display: none;
+    position: relative;
+  }
+
+  .pub-card.active {
+    display: block;
+    animation: scaleUp 0.25s ease forwards;
+  }
+
+  // Card link
+  .pub-card > a {
+    width: 100%;
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 10;
+    }
+  }
+
+  // Card image container
+  .pub-img {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 6px;
+  
+    background: #fff;
+    display: grid;
+    place-items: center;
+  }
+
+  // Image overlay
+  .pub-img::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    z-index: 1;
+    transition: var(--transition-1, 0.25s ease);
+  }
+
+  // Hover: image dimming
+  .pub-card:hover .pub-img::before {
+    background: hsla(0, 0%, 0%, 0.5);
+  }
+
+  // Eye icon box
+  .pub-icon-box {
+    --scale: 0.8;
+    background: var(--card-bg, #1a1a2e);
+    color: var(--link-color);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(var(--scale));
+    font-size: 20px;
+    padding: 8px 18px;
+    border-radius: 12px;
+    opacity: 0;
+    z-index: 2;
+    transition: var(--transition-1, 0.25s ease);
+  }
+
+  // Hover: eye icon appears
+  .pub-card:hover .pub-icon-box {
+    --scale: 1;
+    opacity: 1;
+  }
+
+  // Card image
+  .pub-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: var(--transition-1, 0.25s ease);
+  }
+
+  // Hover: image zoom
+  .pub-card:hover .pub-img img {
+    transform: scale(1.1);
+  }
+
+  // Card text
+  .pub-title,
+  .pub-authors,
+  .pub-venue {
+    margin-left: 10px;
+  }
+
+  .pub-title {
+    color: var(--heading-color, inherit);
+    font-size: 0.95rem;
+    font-weight: 500;
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .pub-authors {
+    color: var(--text-muted-color);
+    font-size: 0.85rem;
+    font-weight: 400;
+    margin-bottom: 0.35rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .pub-authors u {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .pub-venue {
+    color: var(--link-color);
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+
+  .pub-note {
+    color: var(--text-muted-color);
+    font-style: italic;
+    font-size: 0.85rem;
+    margin-top: 1.5rem;
+  }
+
+  @keyframes scaleUp {
+    0% { 
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    100% { 
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+}
+
