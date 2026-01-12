@@ -208,47 +208,6 @@
     transition: transform 0.2s ease;
   }
 
-  .select-list {
-    background: var(--card-bg, #1a1a2e);
-    position: absolute;
-    top: calc(100% + 6px);
-    width: 100%;
-    padding: 0.5rem;
-    border: 1px solid var(--border-color);
-    border-radius: 10px;
-    z-index: 20;
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    transition: opacity 0.15s ease, visibility 0.15s ease;
-    list-style: none;
-    margin: 0;
-
-    .filter-select.active + & {
-      opacity: 1;
-      visibility: visible;
-      pointer-events: auto;
-    }
-  }
-
-  .select-item button {
-    background: transparent;
-    border: none;
-    color: var(--text-muted-color);
-    font-size: 0.9rem;
-    width: 100%;
-    padding: 0.5rem 0.75rem;
-    text-align: left;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background 0.15s ease;
-
-    &:hover {
-      background: var(--border-color);
-      color: var(--heading-color, inherit);
-    }
-  }
-
   // Publication Cards Grid
   .pub-list {
     display: grid;
@@ -286,13 +245,24 @@
     text-decoration: none;
     color: inherit;
     cursor: pointer;
+
+    // 투명 오버레이가 카드 전체를 덮어 클릭 가능하게 함
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 10;
+    }
   }
 
   // Card image container
   .pub-img {
     position: relative;
     width: 100%;
-    height: 200px;
+    height: 160px;
     border-radius: 16px;
     overflow: hidden;
     margin: 0 0 15px 0;
@@ -316,7 +286,7 @@
     background: hsla(0, 0%, 0%, 0.5);
   }
 
-  // Eye icon box (가로로 긴 직사각형)
+  // Eye icon box
   .pub-icon-box {
     --scale: 0.8;
     background: var(--card-bg, #1a1a2e);

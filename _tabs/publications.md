@@ -23,23 +23,6 @@ order: 2
         <button data-filter-btn>Pre-prints</button>
       </li>
     </ul>
-
-    <!-- Mobile select dropdown -->
-    <div class="filter-select-box">
-      <button class="filter-select" data-select>
-        <div class="select-value" data-select-value>Select category</div>
-        <div class="select-icon">
-          <i class="fas fa-chevron-down"></i>
-        </div>
-      </button>
-      <ul class="select-list">
-        <li class="select-item"><button data-select-item>All</button></li>
-        <li class="select-item"><button data-select-item>International conferences</button></li>
-        <li class="select-item"><button data-select-item>Workshops</button></li>
-        <li class="select-item"><button data-select-item>Pre-prints</button></li>
-      </ul>
-    </div>
-
     <!-- Publication cards (auto-generated from _data/publications.yml) -->
     <ul class="pub-list">
       {% assign sorted_pubs = site.data.publications | sort: "date" | reverse %}
