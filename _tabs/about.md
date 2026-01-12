@@ -14,8 +14,8 @@ order: 4
     </p>
     
     <p>
-      My research focuses on <strong>AI4Materials</strong> — applying machine learning and deep learning 
-      to accelerate materials discovery and computational materials science. I'm particularly interested 
+      I work on <strong>AI4Materials</strong>, using machine learning to make 
+      materials discovery faster and more practical. I'm particularly interested 
       in Graph Neural Networks for molecular property prediction, high-throughput screening pipelines, 
       and semiconductor materials design.
     </p>
@@ -54,7 +54,7 @@ order: 4
         <i class="fas fa-graduation-cap"></i>
         <span>Google Scholar</span>
       </a>
-      <a href="https://www.linkedin.com/in/YOUR_LINKEDIN_ID" target="_blank" rel="noopener" class="about-link">
+      <a href="https://www.linkedin.com/in/choi-wonj/" target="_blank" rel="noopener" class="about-link">
         <i class="fab fa-linkedin"></i>
         <span>LinkedIn</span>
       </a>
