@@ -1,0 +1,91 @@
+<!-- Top Navigation Bar -->
+<header id="navbar" class="navbar-wrapper">
+  <nav class="navbar-content">
+    <!-- Logo / Site Title -->
+    <a href="{{ '/' | relative_url }}" class="navbar-brand">
+      {% if site.avatar != empty and site.avatar %}
+        {% capture avatar_url %}
+          {% if site.avatar contains '://' %}
+            {{ site.avatar }}
+          {% elsif site.img_cdn != empty and site.img_cdn %}
+            {{ site.avatar | prepend: site.img_cdn }}
+          {% else %}
+            {{ site.avatar | relative_url }}
+          {% endif %}
+        {% endcapture %}
+        <img src="{{ avatar_url | strip }}" alt="avatar" class="navbar-avatar">
+      {% endif %}
+      <span class="navbar-title">{{ site.title }}</span>
+    </a>
+
+    <!-- Navigation Links -->
+    <div class="navbar-links">
+      <!-- Home Link -->
+      <a href="{{ '/' | relative_url }}" class="nav-link{% if page.layout == 'home' %} active{% endif %}">
+        {{ site.data.locales[include.lang].tabs.home | default: 'Home' }}
+      </a>
+      {% assign nav_tabs = site.tabs | sort: 'order' %}
+      {% for tab in nav_tabs %}
+        {% capture tab_name %}{{ tab.url | split: '/' | last }}{% endcapture %}
+        <a href="{{ tab.url | relative_url }}" class="nav-link{% if tab.url == page.url %} active{% endif %}">
+          {{ site.data.locales[include.lang].tabs.[tab_name] | default: tab.title }}
+        </a>
+      {% endfor %}
+    </div>
+
+    <!-- Right Side: Search + Theme Toggle -->
+    <div class="navbar-actions">
+      <button type="button" id="search-trigger" class="nav-btn" aria-label="Search">
+        <i class="fas fa-search"></i>
+      </button>
+      
+      {% unless site.theme_mode %}
+        <button type="button" class="nav-btn mode-toggle" aria-label="Switch Mode">
+          <i class="fas fa-adjust"></i>
+        </button>
+      {% endunless %}
+
+      <!-- Mobile Menu Toggle -->
+      <button type="button" id="mobile-menu-trigger" class="nav-btn mobile-only" aria-label="Menu">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Search Bar (Hidden by default) -->
+  <div id="search-wrapper" class="search-wrapper">
+    <div class="search-container">
+      <i class="fas fa-search"></i>
+      <input
+        class="search-input"
+        id="search-input"
+        type="search"
+        aria-label="search"
+        autocomplete="off"
+        placeholder="{{ site.data.locales[include.lang].search.hint | default: 'Search' | capitalize }}..."
+      >
+      <button type="button" id="search-cancel" class="search-cancel">
+        {{ site.data.locales[include.lang].search.cancel | default: 'Cancel' }}
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu (Hidden by default) -->
+  <div id="mobile-menu" class="mobile-menu">
+    <!-- Home Link -->
+    <a href="{{ '/' | relative_url }}" class="mobile-nav-link{% if page.layout == 'home' %} active{% endif %}">
+      <i class="fas fa-home"></i>
+      {{ site.data.locales[include.lang].tabs.home | default: 'Home' }}
+    </a>
+    {% assign nav_tabs = site.tabs | sort: 'order' %}
+    {% for tab in nav_tabs %}
+      {% capture tab_name %}{{ tab.url | split: '/' | last }}{% endcapture %}
+      <a href="{{ tab.url | relative_url }}" class="mobile-nav-link{% if tab.url == page.url %} active{% endif %}">
+        <i class="{{ tab.icon }}"></i>
+        {{ site.data.locales[include.lang].tabs.[tab_name] | default: tab.title }}
+      </a>
+    {% endfor %}
+  </div>
+</header>
+
+

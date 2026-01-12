@@ -1,118 +1,140 @@
 ---
 layout: default
-refactor: true
 ---
 
 {% include lang.html %}
 
-{% assign pinned = site.posts | where: 'pin', 'true' %}
-{% assign default = site.posts | where_exp: 'item', 'item.pin != true and item.hidden != true' %}
-
-{% assign posts = '' | split: '' %}
-
-<!-- Get pinned posts -->
-
-{% assign offset = paginator.page | minus: 1 | times: paginator.per_page %}
-{% assign pinned_num = pinned.size | minus: offset %}
-
-{% if pinned_num > 0 %}
-  {% for i in (offset..pinned.size) limit: pinned_num %}
-    {% assign posts = posts | push: pinned[i] %}
-  {% endfor %}
-{% else %}
-  {% assign pinned_num = 0 %}
-{% endif %}
-
-<!-- Get default posts -->
-
-{% assign default_beg = offset | minus: pinned.size %}
-
-{% if default_beg < 0 %}
-  {% assign default_beg = 0 %}
-{% endif %}
-
-{% assign default_num = paginator.posts | size | minus: pinned_num %}
-{% assign default_end = default_beg | plus: default_num | minus: 1 %}
-
-{% if default_num > 0 %}
-  {% for i in (default_beg..default_end) %}
-    {% assign posts = posts | push: default[i] %}
-  {% endfor %}
-{% endif %}
-
-<div id="post-list" class="flex-grow-1 px-xl-1">
-  {% for post in site.posts %}
-    <article class="card-wrapper card">
-      <a href="{{ post.url | relative_url }}" class="post-preview row g-0 flex-md-row-reverse">
-        {% assign card_body_col = '12' %}
-
-        {% if post.image %}
-          {% assign src = post.image.path | default: post.image %}
-          {% unless src contains '//' %}
-            {% assign src = post.img_path | append: '/' | append: src | replace: '//', '/' %}
-          {% endunless %}
-
-          {% assign alt = post.image.alt | xml_escape | default: 'Preview Image' %}
-
-          {% assign lqip = null %}
-
-          {% if post.image.lqip %}
-            {% capture lqip %}lqip="{{ post.image.lqip }}"{% endcapture %}
+<div class="portfolio-home">
+  <!-- ================================ -->
+  <!-- Profile Section (About-Centered) -->
+  <!-- ================================ -->
+  <section class="profile-section">
+    <div class="profile-content">
+      {% if site.avatar != empty and site.avatar %}
+        {% capture avatar_url %}
+          {% if site.avatar contains '://' %}
+            {{ site.avatar }}
+          {% elsif site.img_cdn != empty and site.img_cdn %}
+            {{ site.avatar | prepend: site.img_cdn }}
+          {% else %}
+            {{ site.avatar | relative_url }}
           {% endif %}
-
-          <div class="col-md-5">
-            <img src="{{ src }}" alt="{{ alt }}" {{ lqip }}>
-          </div>
-
-          {% assign card_body_col = '7' %}
-        {% endif %}
-
-        <div class="col-md-{{ card_body_col }}">
-          <div class="card-body d-flex flex-column">
-            <h1 class="card-title my-2 mt-md-0">{{ post.title }}</h1>
-
-            <div class="card-text content mt-0 mb-3">
-              <p>
-                {% include no-linenos.html content=post.content %}
-                {{ content | markdownify | strip_html | truncate: 200 | escape }}
-              </p>
-            </div>
-
-            <div class="post-meta flex-grow-1 d-flex align-items-end">
-              <div class="me-auto">
-                <!-- posted date -->
-                <i class="far fa-calendar fa-fw me-1"></i>
-                {% include datetime.html date=post.date lang=lang %}
-
-                <!-- categories -->
-                {% if post.categories.size > 0 %}
-                  <i class="far fa-folder-open fa-fw me-1"></i>
-                  <span class="categories">
-                    {% for category in post.categories %}
-                      {{ category }}
-                      {%- unless forloop.last -%},{%- endunless -%}
-                    {% endfor %}
-                  </span>
-                {% endif %}
-              </div>
-
-              {% if post.pin %}
-                <div class="pin ms-1">
-                  <i class="fas fa-thumbtack fa-fw"></i>
-                  <span>{{ site.data.locales[lang].post.pin_prompt }}</span>
-                </div>
-              {% endif %}
-            </div>
-            <!-- .post-meta -->
-          </div>
-          <!-- .card-body -->
+        {% endcapture %}
+        <img src="{{ avatar_url | strip }}" alt="Profile Photo" class="profile-photo">
+      {% endif %}
+      
+      <div class="profile-text">
+        <h1 class="profile-name">{{ site.social.name | default: site.title }}</h1>
+        <p class="profile-tagline">{{ site.hero_tagline | default: site.tagline }}</p>
+        
+        <div class="profile-intro">
+          <p>
+            Ph.D. student in the Department of Materials Science and Engineering at 
+            <a href="https://www.snu.ac.kr" target="_blank">Seoul National University</a>, 
+            advised by <a href="https://mdil.snu.ac.kr/" target="_blank">Prof. Seungwoo Han</a>.
+          </p>
+          <p>
+            My research focuses on <strong>AI4Materials</strong> — applying machine learning 
+            to accelerate materials discovery. Interested in Graph Neural Networks, 
+            high-throughput screening, and semiconductor materials design.
+          </p>
         </div>
-      </a>
-    </article>
-  {% endfor %}
-</div>
-<!-- #post-list -->
+        
+        <div class="profile-links">
+          <a href="mailto:wonjun.choi@snu.ac.kr" class="profile-link">
+            <i class="fas fa-envelope"></i>
+          </a>
+          <a href="https://github.com/wonjuncio" target="_blank" rel="noopener" class="profile-link">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://scholar.google.com/citations?user=YOUR_SCHOLAR_ID" target="_blank" rel="noopener" class="profile-link">
+            <i class="fas fa-graduation-cap"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/YOUR_LINKEDIN_ID" target="_blank" rel="noopener" class="profile-link">
+            <i class="fab fa-linkedin"></i>
+          </a>
+        </div>
+        
+        <div class="profile-cta">
+          <a href="{{ '/publications/' | relative_url }}" class="cta-btn primary">
+            <i class="fas fa-file-alt"></i>
+            Publications
+          </a>
+          <a href="{{ '/cv/' | relative_url }}" class="cta-btn secondary">
+            <i class="fas fa-user-graduate"></i>
+            CV
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-{% if paginator.total_pages > 1 %}
-  {% include post-paginator.html %}
-{% endif %}
+  <!-- ================================ -->
+  <!-- Current Focus Section -->
+  <!-- ================================ -->
+  {% if site.data.focus.size > 0 %}
+  <section class="focus-section">
+    <div class="section-header">
+      <h2>Research Interests</h2>
+    </div>
+    <div class="focus-grid">
+      {% for item in site.data.focus %}
+        <span class="focus-tag">
+          <i class="{{ item.icon }}"></i>
+          {{ item.label }}
+        </span>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  <!-- ================================ -->
+  <!-- Featured Posts Section -->
+  <!-- ================================ -->
+  {% if site.data.featured.size > 0 %}
+  <section class="featured-section">
+    <div class="section-header">
+      <h2>Featured Posts</h2>
+      <a href="{{ '/posts/' | relative_url }}">View all →</a>
+    </div>
+    <div class="featured-grid">
+      {% for item in site.data.featured limit: 6 %}
+        {% assign post = site.posts | where: "url", item.url | first %}
+        {% if post %}
+          <a href="{{ post.url | relative_url }}" class="featured-card">
+            <h3 class="featured-card-title">{{ item.title | default: post.title }}</h3>
+            <p class="featured-card-desc">{{ item.description | default: post.excerpt | strip_html | truncate: 100 }}</p>
+          </a>
+        {% else %}
+          <a href="{{ item.url | relative_url }}" class="featured-card">
+            <h3 class="featured-card-title">{{ item.title }}</h3>
+            <p class="featured-card-desc">{{ item.description }}</p>
+          </a>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  <!-- ================================ -->
+  <!-- Latest Posts Section -->
+  <!-- ================================ -->
+  <section class="latest-section">
+    <div class="section-header">
+      <h2>Latest Posts</h2>
+      <a href="{{ '/posts/' | relative_url }}">View all →</a>
+    </div>
+    <div class="latest-list">
+      {% assign visible_posts = site.posts | where_exp: 'post', 'post.hidden != true' %}
+      {% for post in visible_posts limit: 5 %}
+        <a href="{{ post.url | relative_url }}" class="latest-item">
+          <span class="latest-date">{{ post.date | date: "%b %d" }}</span>
+          <span class="latest-title">{{ post.title }}</span>
+          {% if post.categories.size > 0 %}
+            <span class="latest-category">{{ post.categories | first }}</span>
+          {% endif %}
+        </a>
+      {% endfor %}
+    </div>
+  </section>
+</div>

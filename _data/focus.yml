@@ -1,0 +1,25 @@
+# Current Focus / Research Interests
+# ===================================
+# 현재 관심사 및 연구 분야를 정의합니다.
+# icon: Font Awesome 아이콘 클래스
+# label: 표시할 텍스트
+
+- label: "AI4Materials"
+  icon: "fas fa-atom"
+
+- label: "Graph ML"
+  icon: "fas fa-project-diagram"
+
+- label: "Computer Vision"
+  icon: "fas fa-eye"
+
+- label: "PyTorch"
+  icon: "fab fa-python"
+
+- label: "Computational Materials"
+  icon: "fas fa-flask"
+
+- label: "High-Throughput Screening"
+  icon: "fas fa-database"
+
+

@@ -5,6 +5,8 @@
 @import 'addon/module';
 @import 'addon/syntax';
 @import 'addon/commons';
+@import 'layout/navbar';
+@import 'layout/portfolio-home';
 @import 'layout/home';
 @import 'layout/post';
 @import 'layout/tags';
@@ -12,3 +14,5 @@
 @import 'layout/categories';
 @import 'layout/category-tag';
 @import 'layout/about';
+@import 'layout/posts';
+@import 'layout/projects';

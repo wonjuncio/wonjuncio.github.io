@@ -1,0 +1,261 @@
+// Top Navigation Bar Styles
+// =========================
+
+$navbar-height: 64px;
+$navbar-bg: var(--main-bg);
+$navbar-border: var(--border-color);
+
+.navbar-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: $navbar-bg;
+  border-bottom: 1px solid $navbar-border;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.navbar-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  height: $navbar-height;
+}
+
+// Logo / Brand
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: var(--heading-color);
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 0.8;
+    text-decoration: none;
+  }
+}
+
+.navbar-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.navbar-title {
+  @media (max-width: 576px) {
+    display: none;
+  }
+}
+
+// Navigation Links
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.nav-link {
+  padding: 0.5rem 1rem;
+  color: var(--text-muted-color);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+
+  &:hover {
+    color: var(--heading-color);
+    background: var(--btn-paginator-hover-color);
+    text-decoration: none;
+  }
+
+  &.active {
+    color: var(--link-color);
+    background: rgba(var(--link-color-rgb, 99, 102, 241), 0.1);
+  }
+}
+
+// Right Actions
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--text-muted-color);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    color: var(--heading-color);
+    background: var(--btn-paginator-hover-color);
+  }
+
+  i {
+    font-size: 1rem;
+  }
+}
+
+.mobile-only {
+  display: none;
+
+  @media (max-width: 768px) {
+    display: flex;
+  }
+}
+
+// Search Wrapper
+.search-wrapper {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  padding: 1rem 1.5rem;
+  background: $navbar-bg;
+  border-bottom: 1px solid $navbar-border;
+
+  &.active {
+    display: block;
+  }
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0.75rem 1rem;
+  background: var(--card-bg, #1a1a2e);
+  border: 1px solid $navbar-border;
+  border-radius: 10px;
+
+  i {
+    color: var(--text-muted-color);
+  }
+}
+
+.search-input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  color: var(--text-color);
+  font-size: 0.95rem;
+  outline: none;
+
+  &::placeholder {
+    color: var(--text-muted-color);
+  }
+}
+
+.search-cancel {
+  padding: 0.5rem 1rem;
+  border: none;
+  background: transparent;
+  color: var(--link-color);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+// Mobile Menu
+.mobile-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  padding: 1rem;
+  background: $navbar-bg;
+  border-bottom: 1px solid $navbar-border;
+
+  &.active {
+    display: block;
+  }
+
+  @media (min-width: 769px) {
+    display: none !important;
+  }
+}
+
+.mobile-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.875rem 1rem;
+  color: var(--text-muted-color);
+  text-decoration: none;
+  font-size: 0.95rem;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+
+  i {
+    width: 1.25rem;
+    text-align: center;
+  }
+
+  &:hover {
+    color: var(--heading-color);
+    background: var(--btn-paginator-hover-color);
+    text-decoration: none;
+  }
+
+  &.active {
+    color: var(--link-color);
+    background: rgba(var(--link-color-rgb, 99, 102, 241), 0.1);
+  }
+}
+
+// Body padding to account for fixed navbar
+body {
+  padding-top: $navbar-height;
+}
+
+// Hide old sidebar elements
+#sidebar {
+  display: none !important;
+}
+
+#sidebar-trigger {
+  display: none !important;
+}
+
+// Adjust main wrapper for no sidebar
+#main-wrapper {
+  margin-left: 0 !important;
+  
+  > .container {
+    max-width: 1200px;
+  }
+}
+
+

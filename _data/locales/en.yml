@@ -7,14 +7,19 @@ layout:
   category: Category
   tag: Tag
 
-# The tabs of sidebar
+# The tabs of navbar
 tabs:
   # format: <filename_without_extension>: <value>
   home: Home
+  posts: Posts
+  projects: Projects
+  publications: Publications
+  cv: CV
+  about: About
+  # Legacy tabs (kept for compatibility)
   categories: Categories
   tags: Tags
   archives: Archives
-  about: About
 
 # the text displayed in the search bar & search results
 search:

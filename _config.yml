@@ -16,10 +16,18 @@ timezone: Asia/Seoul
 
 title: Wonjun Choi # the main title
 
-tagline: 내가 보려고 만든 블로그 # it will display as the sub-title
+tagline: AI4Materials · Graph ML · Computational Materials # it will display as the sub-title
 
 description: >- # used by seo meta and the atom feed
-  Study Footprint
+  Research & Engineering Portfolio
+
+# Hero section settings for portfolio home
+hero_tagline: "AI4Materials · Graph ML · Computational Materials"
+hero_description: >-
+  Ph.D. student at Seoul National University, researching machine learning 
+  for materials discovery. Interested in Graph Neural Networks, 
+  high-throughput screening, and semiconductor materials design.
+experience_years: "3+"
 
 # Fill in the protocol & hostname for your site.
 # e.g. 'https://username.github.io', note that it does not end with a '/'.

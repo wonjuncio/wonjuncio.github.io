@@ -1,6 +1,22 @@
 // About page styles
 // ===================
 
+// Publications page (standalone)
+.publications-page {
+  max-width: 900px;
+  margin: 0 auto;
+
+  .pub-header {
+    margin-bottom: 2rem;
+  }
+
+  .pub-intro {
+    font-size: 1rem;
+    color: var(--text-muted-color);
+    margin: 0;
+  }
+}
+
 .about-page {
   .tab-container {
     margin: 2rem 0;
