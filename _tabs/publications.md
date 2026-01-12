@@ -35,7 +35,7 @@ order: 2
             </div>
             <img src="{{ pub.image }}" alt="{{ pub.title }}" loading="lazy">
           </figure>
-          <h4 class="pub-title">[{{ pub.id }}] {{ pub.title }}</h4>
+          <h3 class="pub-title"><b>{{ pub.title }}</b></h3>
           <p class="pub-authors">
             {%- for author in pub.authors -%}
               {%- if forloop.index0 == pub.me -%}<u>{{ author }}</u>{%- else -%}{{ author }}{%- endif -%}
