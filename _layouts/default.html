@@ -37,7 +37,7 @@ layout: compress
           </main>
 
           <!-- panel -->
-          {% unless page.layout == 'home' %}
+          {% if page.layout == 'posts' %}
           <aside aria-label="Panel" id="panel-wrapper" class="col-xl-3 ps-2 mb-5 text-muted">
             <div class="access">
               {% include_cached update-list.html lang=lang %}
@@ -49,7 +49,7 @@ layout: compress
               {% include {{ _include_path }} lang=lang %}
             {% endfor %}
           </aside>
-          {% endunless %}
+          {% endif %}
         </div>
 
         <div class="row">
