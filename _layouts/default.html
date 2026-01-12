@@ -93,27 +93,43 @@ layout: compress
     <!-- Custom navbar scripts -->
     <script>
       // Mobile menu toggle
+      const navbar = document.getElementById('navbar');
       const mobileMenuTrigger = document.getElementById('mobile-menu-trigger');
       const mobileMenu = document.getElementById('mobile-menu');
-      
-      if (mobileMenuTrigger && mobileMenu) {
-        mobileMenuTrigger.addEventListener('click', () => {
-          mobileMenu.classList.toggle('active');
-          const searchWrapper = document.getElementById('search-wrapper');
-          if (searchWrapper) searchWrapper.classList.remove('active');
-        });
-      }
 
       // Search toggle
       const searchTrigger = document.getElementById('search-trigger');
       const searchWrapper = document.getElementById('search-wrapper');
       const searchCancel = document.getElementById('search-cancel');
       const searchInput = document.getElementById('search-input');
+
+      const closeMobileMenu = () => {
+        if (!mobileMenu) return;
+        mobileMenu.classList.remove('active');
+        if (mobileMenuTrigger) mobileMenuTrigger.setAttribute('aria-expanded', 'false');
+      };
+
+      const closeSearch = () => {
+        if (!searchWrapper) return;
+        searchWrapper.classList.remove('active');
+        if (searchTrigger) searchTrigger.setAttribute('aria-expanded', 'false');
+      };
+
+      if (mobileMenuTrigger && mobileMenu) {
+        mobileMenuTrigger.setAttribute('aria-expanded', 'false');
+        mobileMenuTrigger.addEventListener('click', () => {
+          const isOpen = mobileMenu.classList.toggle('active');
+          mobileMenuTrigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+          if (searchWrapper) searchWrapper.classList.remove('active');
+        });
+      }
       
       if (searchTrigger && searchWrapper) {
+        searchTrigger.setAttribute('aria-expanded', 'false');
         searchTrigger.addEventListener('click', () => {
-          searchWrapper.classList.toggle('active');
-          if (mobileMenu) mobileMenu.classList.remove('active');
+          const isOpen = searchWrapper.classList.toggle('active');
+          searchTrigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+          closeMobileMenu();
           if (searchInput && searchWrapper.classList.contains('active')) {
             searchInput.focus();
           }
@@ -122,15 +138,15 @@ layout: compress
       
       if (searchCancel && searchWrapper) {
         searchCancel.addEventListener('click', () => {
-          searchWrapper.classList.remove('active');
+          closeSearch();
         });
       }
 
       // Close menus on outside click
       document.addEventListener('click', (e) => {
-        if (!e.target.closest('#navbar')) {
-          if (mobileMenu) mobileMenu.classList.remove('active');
-          if (searchWrapper) searchWrapper.classList.remove('active');
+        if (navbar && !navbar.contains(e.target)) {
+          closeMobileMenu();
+          closeSearch();
         }
       });
     </script>

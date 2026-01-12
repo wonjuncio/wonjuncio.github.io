@@ -21,3 +21,6 @@ package-lock.json
 # IDE configurations
 .idea
 .vscode
+
+# Built assets
+assets/js/dist/
