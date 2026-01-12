@@ -8,34 +8,29 @@ order: 4
 <div class="about-page-simple">
   <div class="about-intro">
     <p>
-      Hi! I'm <strong>Wonjun Choi</strong>, a Ph.D. student in the Department of Materials Science and Engineering at 
-      <a href="https://www.snu.ac.kr" target="_blank">Seoul National University</a>, 
-      advised by <a href="https://mdil.snu.ac.kr/" target="_blank">Prof. Seungwoo Han</a>.
-    </p>
-    
-    <p>
-      I work on <strong>AI4Materials</strong>, using machine learning to make 
-      materials discovery faster and more practical. I'm particularly interested 
-      in Graph Neural Networks for molecular property prediction, high-throughput screening pipelines, 
-      and semiconductor materials design.
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
     </p>
   </div>
 
   <section class="about-section">
     <h2>Research Philosophy</h2>
     <p>
-      I believe in bridging the gap between traditional materials science and modern AI. 
-      My goal is to develop methods that not only predict material properties accurately 
-      but also provide interpretable insights that can guide experimental work.
+      Excepteur sint occaecat cupidatat non proident,
+      sunt in culpa qui officia deserunt mollit anim id est laborum.
+      Integer in mauris eu nibh euismod gravida.
+      Duis ac tellus et risus vulputate vehicula.
+      Donec lobortis risus a elit.
     </p>
   </section>
 
   <section class="about-section">
     <h2>Beyond Research</h2>
     <p>
-      When I'm not coding or running simulations, you can find me writing technical blog posts 
-      to solidify my understanding of new concepts, or exploring the latest developments in 
-      deep learning frameworks and tools.
+      Curabitur pretium tincidunt lacus.
+      Nulla gravida orci a odio.
+      Nullam varius, turpis et commodo pharetra,
+      est eros bibendum elit, nec luctus magna felis sollicitudin mauris.
     </p>
   </section>
 

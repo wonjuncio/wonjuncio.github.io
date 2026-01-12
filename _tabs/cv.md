@@ -96,7 +96,7 @@ order: 3
     <div class="skills-compact">
       <div class="skill-row">
         <span class="skill-label">Programming</span>
-        <span class="skill-content">Python, C++, MATLAB</span>
+        <span class="skill-content">Python, C++, CUDA, MATLAB</span>
       </div>
       <div class="skill-row">
         <span class="skill-label">ML/DL</span>
