@@ -25,13 +25,13 @@ order: 3
         <div class="timeline-item-title">Seoul National University</div>
         <p class="timeline-degree">Ph.D. in Materials Science and Engineering</p>
         <span class="timeline-meta">Mar. 2026 – Present · Republic of Korea</span>
-        <p class="timeline-text detail">Advised by <a href="https://scholar.google.com/citations?user=DYhDLrAAAAAJ&hl=ko" target="_blank">Prof. Seungwoo Han</a></p>
+        <p class="timeline-text detail">Advised by <a href="https://scholar.google.com/citations?user=DYhDLrAAAAAJ&hl=ko" target="_blank">Seungwoo Han</a></p>
       </li>
       <li class="timeline-item">
         <div class="timeline-item-title">Imperial College London</div>
         <p class="timeline-degree">MEng in Materials Science and Engineering</p>
         <span class="timeline-meta">Sep. 2018 – Sep. 2022 · United Kingdom</span>
-        <p class="timeline-text detail">Supervised by <a href="https://scholar.google.co.uk/citations?user=Ktvn91gAAAAJ&hl=en" target="_blank">Aron Walsh</a> and <a href="https://scholar.google.com/citations?user=nVJFXWwAAAAJ&hl=en" target="_blank">Alex Ganose</a></p>
+        <p class="timeline-text detail">Advised by <a href="https://scholar.google.co.uk/citations?user=Ktvn91gAAAAJ&hl=en" target="_blank">Aron Walsh</a></p>
       </li>
       <li class="timeline-item">
         <div class="timeline-item-title">North London Collegiate School Jeju</div>
@@ -50,6 +50,11 @@ order: 3
         <span class="timeline-meta">Mar. 2023 – Mar. 2026 · Republic of Korea</span>
       </li>
       <li class="timeline-item">
+        <div class="timeline-item-title">Lightvision Co., Ltd</div>
+        <p class="timeline-degree">Assistant Research Engineer</p>
+        <span class="timeline-meta">Jan. 2023 – Mar. 2023 · Republic of Korea</span>
+      </li>
+      <li class="timeline-item">
         <div class="timeline-item-title">Korea Electronics Technology Institute (KETI)</div>
         <p class="timeline-degree">Research Engineer Intern, SW R&D Department</p>
         <span class="timeline-meta">Oct. 2020 – Oct. 2021 · Republic of Korea</span>
@@ -61,32 +66,144 @@ order: 3
     <h2 class="cv-section-title"><i class="fas fa-rocket"></i> Research Projects</h2>
     <div class="projects-list">
       <div class="project-item">
-        <div class="project-header">
-          <span class="project-title">Real-Time Fetal Monitor Tracking System</span>
-          <span class="project-date">Jan. 2023 – Feb. 2023</span>
+        <div class="project-summary" tabindex="0" role="button" aria-expanded="false">
+          <div class="project-summary-content">
+            <span class="project-title">Real-Time Fetal Monitor Tracking System</span>
+            <p class="project-meta">Personal Project</p>
+          </div>
+          <div class="project-summary-right">
+            <a href="" target="_blank" class="project-github-link" title="View on GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+            <span class="project-date">Jan. 2023 – Feb. 2023</span>
+          </div>
+          <i class="fas fa-chevron-down project-chevron"></i>
         </div>
-        <p class="project-desc">Personal Project</p>
+        <div class="project-details">
+          <div class="project-detail-section">
+            <span class="project-detail-heading">Outcome</span>
+            <p>Achieved real-time fetal monitor tracking at 30 fps using a mobile camera.</p>
+          </div>
+          <div class="project-detail-section">
+            <span class="project-detail-heading">What I did</span>
+            <p>Developed a YOLOv4-based object detection system and optimized the data pipeline with OpenCV and TensorFlow for real-time inference.</p>
+          </div>
+          <div class="project-tags">
+            <span class="project-tag">YOLOv4</span>
+            <span class="project-tag">OpenCV</span>
+            <span class="project-tag">TensorFlow</span>
+            <span class="project-tag">Real-time Processing</span>
+            <span class="project-tag">Python</span>
+          </div>
+        </div>
       </div>
       <div class="project-item">
-        <div class="project-header">
-          <span class="project-title">Machine Learning Prediction of Point Defect Properties</span>
-          <span class="project-date">Sep. 2021 – Jul. 2022</span>
+        <div class="project-summary" tabindex="0" role="button" aria-expanded="false">
+          <div class="project-summary-content">
+            <span class="project-title">Machine Learning Prediction of Point Defect Properties</span>
+            <p class="project-meta">Imperial College London · MEng Thesis · First Class (Top Honours)</p>
+          </div>
+          <div class="project-summary-right">
+            <a href="https://github.com/wonjuncio/Evo_prediction_ml" target="_blank" class="project-github-link" title="View on GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+            <span class="project-date">Sep. 2021 – Jul. 2022</span>
+          </div>
+          <i class="fas fa-chevron-down project-chevron"></i>
         </div>
-        <p class="project-desc">Imperial College London, MEng Thesis</p>
+        <div class="project-details">
+          <div class="project-detail-section">
+            <span class="project-detail-heading">Outcome</span>
+            <p>Achieved strong predictive performance for point defect properties in metal oxides using tree-based machine learning models.</p>
+          </div>
+          <div class="project-detail-section">
+            <span class="project-detail-heading">What I did</span>
+            <p>Built Random Forest and Gradient Boosting models trained on DFT-generated defect datasets. Engineered descriptors using Matminer and PyMatGen, and optimized model performance by benchmarking feature selection methods.</p>
+          </div>
+          <div class="project-detail-section">
+            <span class="project-detail-heading">Supervision</span>
+            <p><a href="https://scholar.google.co.uk/citations?user=Ktvn91gAAAAJ&hl=en" target="_blank">Prof. Aron Walsh</a> and <a href="https://scholar.google.com/citations?user=nVJFXWwAAAAJ&hl=en" target="_blank">Prof. Alex Ganose</a></p>
+          </div>
+          <div class="project-tags">
+            <span class="project-tag">Python</span>
+            <span class="project-tag">Random Forest</span>
+            <span class="project-tag">Gradient Boosting</span>
+            <span class="project-tag">DFT</span>
+            <span class="project-tag">Feature Engineering</span>
+            <span class="project-tag">Matminer</span>
+            <span class="project-tag">PyMatGen</span>
+          </div>
+        </div>
       </div>
       <div class="project-item">
-        <div class="project-header">
-          <span class="project-title">Heat–Mass Transfer Simulation (Exhaust Pipe Scenario)</span>
-          <span class="project-date">Jan. 2020 – Mar. 2020</span>
+        <div class="project-summary" tabindex="0" role="button" aria-expanded="false">
+          <div class="project-summary-content">
+            <span class="project-title">Heat–Mass Transfer Simulation (Exhaust Pipe Scenario)</span>
+            <p class="project-meta">Imperial College London · Modelling Project · First Class (Top Honours)</p>
+          </div>
+          <div class="project-summary-right">
+            <a href="https://github.com/wonjuncio/catalytic_converter_heatflow" target="_blank" class="project-github-link" title="View on GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+            <span class="project-date">Jan. 2020 – Mar. 2020</span>
+          </div>
+          <i class="fas fa-chevron-down project-chevron"></i>
         </div>
-        <p class="project-desc">Imperial College London</p>
+        <div class="project-details">
+          <div class="project-detail-section">
+            <span class="project-detail-heading">Outcome</span>
+            <p>Accurately simulated heat flow in a discretized catalytic converter under exhaust pipe operating conditions.</p>
+          </div>
+          <div class="project-detail-section">
+            <span class="project-detail-heading">What I did</span>
+            <p>Solved numerical heat transfer equations on a discretized geometry to model temperature evolution in a catalytic converter.</p>
+          </div>
+          <div class="project-detail-section">
+            <span class="project-detail-heading">Supervision</span>
+            <p><a href="https://scholar.google.com/citations?user=zIHV5hQAAAAJ&hl=en" target="_blank">Dr. Khalil Rhazaoui</a></p>
+          </div>
+          <div class="project-tags">
+            <span class="project-tag">Heat Transfer</span>
+            <span class="project-tag">Numerical Methods</span>
+            <span class="project-tag">CFD</span>
+            <span class="project-tag">MATLAB</span>
+          </div>
+        </div>
       </div>
       <div class="project-item">
-        <div class="project-header">
-          <span class="project-title">2D/3D Binary Substitutional Alloy Simulation</span>
-          <span class="project-date">Nov. 2019 – Mar. 2020</span>
+        <div class="project-summary" tabindex="0" role="button" aria-expanded="false">
+          <div class="project-summary-content">
+            <span class="project-title">2D/3D Binary Substitutional Alloy Simulation</span>
+            <p class="project-meta">Imperial College London · Modelling Project · First Class (Top Honours)</p>
+          </div>
+          <div class="project-summary-right">
+            <a href="https://github.com/wonjuncio/alloy_modelling" target="_blank" class="project-github-link" title="View on GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+            <span class="project-date">Nov. 2019 – Mar. 2020</span>
+          </div>
+          <i class="fas fa-chevron-down project-chevron"></i>
         </div>
-        <p class="project-desc">Imperial College London</p>
+        <div class="project-details">
+          <div class="project-detail-section">
+            <span class="project-detail-heading">Outcome</span>
+            <p>Reproduced temperature- and composition-dependent phase behavior in binary substitutional alloys.</p>
+          </div>
+          <div class="project-detail-section">
+            <span class="project-detail-heading">What I did</span>
+            <p>Performed Monte Carlo simulations in Python to analyze the effects of temperature, composition, and interaction energies in 2D and 3D lattice systems.</p>
+          </div>
+          <div class="project-detail-section">
+            <span class="project-detail-heading">Supervision</span>
+            <p><a href="https://scholar.google.com/citations?user=xkfxdHEAAAAJ&hl=en" target="_blank">Prof. Andrew Horsfield</a></p>
+          </div>
+          <div class="project-tags">
+            <span class="project-tag">Monte Carlo</span>
+            <span class="project-tag">Statistical Mechanics</span>
+            <span class="project-tag">Python</span>
+            <span class="project-tag">Alloy Simulation</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -96,14 +213,14 @@ order: 3
     <div class="skills-compact">
       <div class="skill-row">
         <span class="skill-label">Programming</span>
-        <span class="skill-content">Python, C++, CUDA, MATLAB</span>
+        <span class="skill-content">Python, C, C++, CUDA, MATLAB</span>
       </div>
       <div class="skill-row">
         <span class="skill-label">ML/DL</span>
         <span class="skill-content">PyTorch, TensorFlow, PyTorch Geometric</span>
       </div>
       <div class="skill-row">
-        <span class="skill-label">Materials Science</span>
+        <span class="skill-label">AI4Materials</span>
         <span class="skill-content">DFT, VASP, ASE, Pymatgen</span>
       </div>
     </div>
@@ -322,47 +439,292 @@ order: 3
 .cv-section--flat .projects-list {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0.875rem;
 }
 
 .project-item {
-  padding: 1rem 1.25rem;
   background: var(--card-bg, rgba(255,255,255,0.02));
   border: 1px solid var(--border-color);
   border-radius: 10px;
-  transition: border-color 0.2s ease;
+  transition: all 0.25s ease;
+  overflow: hidden;
+  position: relative;
 }
 
 .project-item:hover {
   border-color: var(--link-color);
 }
 
-.project-header {
+.project-item.active {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Click feedback - ring effect that fades out */
+.project-item::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: 10px;
+  border: 4px solid transparent;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 2.0s ease-out;
+  z-index: 10;
+}
+
+.project-item.clicked::before {
+  border-color: var(--link-color);
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.3);
+  opacity: 1;
+  animation: ringFadeOut 1.0s ease-out forwards;
+}
+
+@keyframes ringFadeOut {
+  0% {
+    opacity: 1;
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.4);
+  }
+  100% {
+    opacity: 0;
+    box-shadow: 0 0 0 0 rgba(99, 102, 241, 0);
+  }
+}
+
+/* Summary - Always visible, clickable */
+.project-summary {
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 0.35rem;
+  padding: 1rem 1.25rem;
+  cursor: pointer;
+  user-select: none;
+  gap: 0.75rem;
+  transition: background-color 0.2s ease;
+}
+
+.project-item:not(.active):not(.no-hover) .project-summary:hover:not(:active) {
+  background: rgba(var(--link-color-rgb, 99, 102, 241), 0.05);
+}
+
+.project-summary:focus {
+  outline: none;
+}
+
+/* Show outline only for keyboard navigation */
+.project-summary:focus-visible {
+  outline: 2px solid var(--link-color);
+  outline-offset: -2px;
+  border-radius: 10px;
+}
+
+.project-summary-content {
+  flex: 1;
+  min-width: 0;
 }
 
 .project-title {
   font-weight: 600;
   font-size: 0.95rem;
   color: var(--heading-color);
+  line-height: 1.4;
+  display: block;
+}
+
+.project-summary-right {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  flex-shrink: 0;
 }
 
 .project-date {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   color: var(--text-muted-color);
-  opacity: 0.75;
+  opacity: 0.6;
+  font-weight: 400;
   white-space: nowrap;
+  width: 110px;
+  text-align: right;
 }
 
-.project-desc {
-  font-size: 0.85rem;
+/* Project meta in summary */
+.project-summary .project-meta {
+  font-size: 0.8rem;
+  font-weight: 400;
   color: var(--text-muted-color);
+  margin: 0.25rem 0 0;
+  opacity: 0.75;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.project-github-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(var(--link-color-rgb, 99, 102, 241), 0.1);
+  color: var(--link-color);
+  text-decoration: none;
+  font-size: 0.75rem;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.project-github-link:hover {
+  background: var(--link-color);
+  color: #fff;
+  transform: scale(1.1);
+}
+
+/* Hide GitHub link if href is empty or missing */
+.project-github-link[href=""],
+.project-github-link:not([href]),
+.project-github-link[href="#"] {
+  display: none;
+}
+
+.project-chevron {
+  font-size: 0.75rem;
+  color: var(--text-muted-color);
+  opacity: 0.6;
+  transition: transform 0.3s ease, opacity 0.2s ease;
+  flex-shrink: 0;
+}
+
+.project-item.active .project-chevron {
+  transform: rotate(180deg);
+  opacity: 1;
+}
+
+/* Details - Hidden by default, shown when active */
+.project-details {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, opacity 0.3s ease, padding 0.3s ease;
+  padding: 0 1.25rem;
+}
+
+.project-item.active .project-details {
+  max-height: 600px;
+  opacity: 1;
+  padding: 0 1.25rem 1.25rem;
+}
+
+/* Project meta info (institution, type, award) */
+.project-meta {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--link-color);
+  margin: 0 0 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-color);
+  opacity: 0.9;
+}
+
+/* Detail sections (Outcome, What I did, Supervision) */
+.project-detail-section {
+  margin-bottom: 0.875rem;
+}
+
+.project-detail-section:last-of-type {
+  margin-bottom: 0;
+}
+
+.project-detail-heading {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted-color);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-bottom: 0.35rem;
+  opacity: 0.7;
+}
+
+.project-detail-section p {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--text-color);
   margin: 0;
+  opacity: 0.9;
+}
+
+.project-detail-section a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+.project-detail-section a:hover {
+  text-decoration: underline;
+}
+
+.project-detail-row {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.project-detail-content {
+  margin: 0.75rem 0;
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: var(--text-muted-color);
+  opacity: 0.85;
+}
+
+.project-detail-content p {
+  margin: 0;
+}
+
+.project-detail-label {
+  font-weight: 600;
+  color: var(--text-muted-color);
+  opacity: 0.8;
+  flex-shrink: 0;
+  min-width: 80px;
+}
+
+.project-detail-value {
+  color: var(--text-muted-color);
+  opacity: 0.85;
+  flex: 1;
+}
+
+.project-detail-value a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+.project-detail-value a:hover {
+  text-decoration: underline;
+}
+
+/* Tags - Pill/Badge style */
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border-color);
+  opacity: 0.9;
+}
+
+.project-tag {
+  font-size: 0.7rem;
+  font-weight: 500;
+  padding: 0.2rem 0.6rem;
+  border-radius: 12px;
+  background: rgba(var(--text-muted-color-rgb, 128, 128, 128), 0.15);
+  color: var(--text-muted-color);
+  opacity: 0.8;
+  white-space: nowrap;
 }
 
 /* ================================
@@ -477,10 +839,143 @@ order: 3
     width: auto;
   }
   
-  .project-header {
+  .project-summary {
+    padding: 0.875rem 1rem;
+    position: relative;
+    padding-right: 2rem;
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+  
+  .project-summary-content {
+    width: 100%;
+    order: 2;
+  }
+  
+  .project-summary-right {
+    order: 1;
+    width: 100%;
+    margin-bottom: 0.5rem;
+    justify-content: flex-start;
+  }
+  
+  .project-date {
+    width: auto;
+    text-align: left;
+  }
+  
+  .project-chevron {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+  }
+  
+  .project-summary .project-meta {
+    font-size: 0.75rem;
+  }
+  
+  .project-details {
+    padding: 0 1rem;
+  }
+  
+  .project-item.active .project-details {
+    padding: 0 1rem 1rem;
+  }
+  
+  .project-detail-row {
     flex-direction: column;
     gap: 0.25rem;
   }
+  
+  .project-detail-label {
+    min-width: auto;
+  }
+  
+  .project-tags {
+    gap: 0.4rem;
+  }
+  
+  .project-tag {
+    font-size: 0.65rem;
+    padding: 0.15rem 0.5rem;
+  }
 }
 </style>
+
+<script>
+(function() {
+  // Accordion functionality for project items
+  const projectItems = document.querySelectorAll('.project-item');
+  
+  projectItems.forEach(item => {
+    const summary = item.querySelector('.project-summary');
+    if (!summary) return;
+    
+    // Click handler
+    const handleClick = (e) => {
+      // Don't trigger accordion if clicking on GitHub link
+      if (e.target.closest('.project-github-link')) {
+        return;
+      }
+      
+      e.preventDefault();
+      const isActive = item.classList.contains('active');
+      
+      // Add click animation
+      item.classList.remove('clicked');
+      // Force reflow to restart animation
+      void item.offsetWidth;
+      item.classList.add('clicked');
+      
+      // Remove clicked class after animation completes
+      setTimeout(() => {
+        item.classList.remove('clicked');
+      }, 1000);
+      
+      // Close all other items (accordion behavior)
+      projectItems.forEach(otherItem => {
+        if (otherItem !== item) {
+          if (otherItem.classList.contains('active')) {
+            // Add no-hover class when closing
+            otherItem.classList.add('no-hover');
+            setTimeout(() => {
+              otherItem.classList.remove('no-hover');
+            }, 500);
+          }
+          otherItem.classList.remove('active');
+          const otherSummary = otherItem.querySelector('.project-summary');
+          if (otherSummary) {
+            otherSummary.setAttribute('aria-expanded', 'false');
+          }
+        }
+      });
+      
+      // Toggle current item
+      if (isActive) {
+        item.classList.remove('active');
+        // Add no-hover class when closing current item
+        item.classList.add('no-hover');
+        setTimeout(() => {
+          item.classList.remove('no-hover');
+        }, 500);
+        summary.setAttribute('aria-expanded', 'false');
+      } else {
+        item.classList.add('active');
+        summary.setAttribute('aria-expanded', 'true');
+      }
+    };
+    
+    // Keyboard support (Enter and Space)
+    const handleKeyDown = (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        handleClick(e);
+      }
+    };
+    
+    summary.addEventListener('click', handleClick);
+    summary.addEventListener('keydown', handleKeyDown);
+  });
+})();
+</script>
 
