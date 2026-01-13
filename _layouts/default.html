@@ -63,8 +63,6 @@ layout: compress
             {% include_cached footer.html lang=lang %}
           </div>
         </div>
-
-        {% include_cached search-results.html lang=lang %}
       </div>
 
       <aside aria-label="Scroll to Top">
@@ -102,6 +100,8 @@ layout: compress
       const searchWrapper = document.getElementById('search-wrapper');
       const searchCancel = document.getElementById('search-cancel');
       const searchInput = document.getElementById('search-input');
+      const searchResults = document.getElementById('search-results');
+      const searchOverlay = document.getElementById('search-overlay');
 
       const closeMobileMenu = () => {
         if (!mobileMenu) return;
@@ -109,15 +109,23 @@ layout: compress
         if (mobileMenuTrigger) mobileMenuTrigger.setAttribute('aria-expanded', 'false');
       };
 
-      const searchResults = document.getElementById('search-results');
-
       const closeSearch = () => {
         if (!searchWrapper) return;
         searchWrapper.classList.remove('active');
+        if (searchOverlay) searchOverlay.classList.remove('active');
         if (searchTrigger) searchTrigger.setAttribute('aria-expanded', 'false');
         // Clear search input and results
         if (searchInput) searchInput.value = '';
         if (searchResults) searchResults.innerHTML = '';
+      };
+
+      const openSearch = () => {
+        if (!searchWrapper) return;
+        searchWrapper.classList.add('active');
+        if (searchOverlay) searchOverlay.classList.add('active');
+        if (searchTrigger) searchTrigger.setAttribute('aria-expanded', 'true');
+        closeMobileMenu();
+        if (searchInput) setTimeout(() => searchInput.focus(), 100);
       };
 
       // Helper for iOS touch events - debounced to prevent double firing
@@ -155,11 +163,10 @@ layout: compress
       if (searchTrigger && searchWrapper) {
         searchTrigger.setAttribute('aria-expanded', 'false');
         addTapHandler(searchTrigger, () => {
-          const isOpen = searchWrapper.classList.toggle('active');
-          searchTrigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-          closeMobileMenu();
-          if (searchInput && searchWrapper.classList.contains('active')) {
-            setTimeout(() => searchInput.focus(), 100);
+          if (searchWrapper.classList.contains('active')) {
+            closeSearch();
+          } else {
+            openSearch();
           }
         });
       }
@@ -170,11 +177,17 @@ layout: compress
         });
       }
 
+      // Close search when clicking overlay
+      if (searchOverlay) {
+        addTapHandler(searchOverlay, () => {
+          closeSearch();
+        });
+      }
+
       // Close menus on outside click only (not touchend to avoid conflicts)
       document.addEventListener('click', (e) => {
-        if (navbar && !navbar.contains(e.target)) {
+        if (navbar && !navbar.contains(e.target) && e.target !== searchOverlay) {
           closeMobileMenu();
-          closeSearch();
         }
       });
     </script>
