@@ -314,6 +314,8 @@ order: 3
 .cv-download-btn:hover {
   background: var(--link-color);
   color: #fff;
+  opacity: 0.9;
+  transform: translateY(-1px);
   text-decoration: none;
 }
 

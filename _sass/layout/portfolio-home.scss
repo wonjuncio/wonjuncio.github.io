@@ -175,6 +175,7 @@
     &:hover {
       border-color: var(--link-color);
       color: var(--link-color);
+      transform: translateY(-1px);
       text-decoration: none;
     }
   }
