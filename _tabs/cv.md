@@ -104,6 +104,9 @@ order: 3
             <p class="project-meta">Imperial College London · MEng Thesis · First Class (Top Honours)</p>
           </div>
           <div class="project-summary-right">
+            <a href="/assets/WonjunChoi_MEng_Thesis.pdf" target="_blank" class="project-pdf-link" title="View Thesis PDF">
+              <i class="fas fa-file-pdf"></i>
+            </a>
             <a href="https://github.com/wonjuncio/Evo_prediction_ml" target="_blank" class="project-github-link" title="View on GitHub">
               <i class="fab fa-github"></i>
             </a>
@@ -533,7 +536,7 @@ order: 3
 .project-summary-right {
   display: flex;
   align-items: center;
-  gap: 0.25rem;
+  gap: 0.5rem;
   flex-shrink: 0;
 }
 
@@ -543,7 +546,7 @@ order: 3
   opacity: 0.6;
   font-weight: 400;
   white-space: nowrap;
-  width: 110px;
+  width: 100px;
   text-align: right;
 }
 
@@ -556,6 +559,26 @@ order: 3
   opacity: 0.75;
   border-bottom: none;
   padding-bottom: 0;
+}
+.project-pdf-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(var(--link-color-rgb, 99, 102, 241), 0.1);
+  color: rgba(255, 155, 176, 0.9);
+  text-decoration: none;
+  font-size: 0.75rem;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.project-pdf-link:hover {
+  background:rgba(255, 155, 176, 0.4);
+  color: #fff;
+  transform: scale(1.1);
 }
 
 .project-github-link {
@@ -913,8 +936,8 @@ order: 3
     
     // Click handler
     const handleClick = (e) => {
-      // Don't trigger accordion if clicking on GitHub link
-      if (e.target.closest('.project-github-link')) {
+      // Don't trigger accordion if clicking on GitHub or PDF link
+      if (e.target.closest('.project-github-link') || e.target.closest('.project-pdf-link')) {
         return;
       }
       
