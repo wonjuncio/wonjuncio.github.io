@@ -37,14 +37,17 @@
 .profile-photo {
   width: 96px;
   height: 160px;
-  border-radius: 0;
+  border-radius: 8px;
   object-fit: cover;
+  object-position: center top;
+  overflow: hidden;
   border: 0px solid var(--border-color);
   flex-shrink: 0;
   
   @media (min-width: 768px) {
     width: 180px;
     height: 300px;
+    border-radius: 12px;
   }
 }
 
