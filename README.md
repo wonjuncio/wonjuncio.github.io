@@ -1,7 +1,5 @@
 <div align="center">
 
-<img src="./assets/img/avatar/pomvonpurin_study_real.png" alt="avatar" width="150"/>
-
 # Wonjun Choi's Tech Blog
 
 **내가 보려고 만든 블로그** 📚

@@ -35,16 +35,16 @@
 }
 
 .profile-photo {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
+  width: 120px;
+  height: 160px;
+  border-radius: 0;
   object-fit: cover;
   border: 4px solid var(--border-color);
   flex-shrink: 0;
   
   @media (min-width: 768px) {
     width: 180px;
-    height: 180px;
+    height: 300px;
   }
 }
 
