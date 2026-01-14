@@ -80,10 +80,6 @@
     display: block;
     position: relative;
     margin-bottom: 1.5rem;
-
-    @media (min-width: 768px) {
-      display: none;
-    }
   }
 
   .filter-select {
@@ -128,7 +124,7 @@
     align-items: start;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 700px) {
     .pub-list { grid-template-columns: repeat(2, 1fr); }
   }
 
@@ -138,8 +134,10 @@
 
   // Card visibility
   .pub-card {
+    max-width: 465px;
     display: none;
     position: relative;
+    justify-self: center;
   }
 
   .pub-card.active {
@@ -227,6 +225,16 @@
   // Hover: image zoom
   .pub-card:hover .pub-img img {
     transform: scale(1.1);
+  }
+
+  // Disable shimmer effect on publication images
+  .pub-card > a.shimmer .pub-img::before,
+  .pub-img.shimmer::before,
+  .pub-img .shimmer::before {
+    display: none !important;
+    animation: none !important;
+    -webkit-animation: none !important;
+    content: none !important;
   }
 
   // Card text

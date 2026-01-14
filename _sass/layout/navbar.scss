@@ -52,7 +52,7 @@ $navbar-border: var(--border-color);
 }
 
 .navbar-title {
-  @media (max-width: 576px) {
+  @media (max-width: 360px) {
     display: none;
   }
 }

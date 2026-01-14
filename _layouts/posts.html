@@ -4,15 +4,17 @@ layout: default
 
 {% include lang.html %}
 
-<div class="posts-page">
-  <!-- ================================ -->
-  <!-- 1. Title -->
-  <!-- ================================ -->
-  <h1 class="posts-title">Posts</h1>
-  
-  <!-- ================================ -->
-  <!-- 2. Primary Control - Search -->
-  <!-- ================================ -->
+<article class="px-1">
+  {% assign tab_key = page.title | downcase %}
+  {% assign title = site.data.locales[lang].tabs[tab_key] | default: page.title %}
+  <h1 class="dynamic-title">
+    {{ title }}
+  </h1>
+  <div class="content">
+    <div class="posts-page">
+      <!-- ================================ -->
+      <!-- 1. Primary Control - Search -->
+      <!-- ================================ -->
   <div class="posts-search-wrapper">
     <i class="fas fa-search"></i>
     <input type="text" id="posts-search" placeholder="Search posts...">
@@ -112,7 +114,9 @@ layout: default
       </div>
     {% endfor %}
   </div>
-</div>
+    </div>
+  </div>
+</article>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
