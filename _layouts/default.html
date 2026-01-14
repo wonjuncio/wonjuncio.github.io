@@ -90,71 +90,71 @@ layout: compress
 
     <!-- Custom navbar scripts -->
     <script>
-      // Mobile menu toggle
-      const navbar = document.getElementById('navbar');
-      const mobileMenuTrigger = document.getElementById('mobile-menu-trigger');
-      const mobileMenu = document.getElementById('mobile-menu');
+      /* Mobile menu toggle */
+      var navbar = document.getElementById('navbar');
+      var mobileMenuTrigger = document.getElementById('mobile-menu-trigger');
+      var mobileMenu = document.getElementById('mobile-menu');
 
-      // Search toggle
-      const searchTrigger = document.getElementById('search-trigger');
-      const searchWrapper = document.getElementById('search-wrapper');
-      const searchCancel = document.getElementById('search-cancel');
-      const searchInput = document.getElementById('search-input');
-      const searchResults = document.getElementById('search-results');
-      const searchOverlay = document.getElementById('search-overlay');
+      /* Search toggle */
+      var searchTrigger = document.getElementById('search-trigger');
+      var searchWrapper = document.getElementById('search-wrapper');
+      var searchCancel = document.getElementById('search-cancel');
+      var searchInput = document.getElementById('search-input');
+      var searchResults = document.getElementById('search-results');
+      var searchOverlay = document.getElementById('search-overlay');
 
-      const closeMobileMenu = () => {
+      function closeMobileMenu() {
         if (!mobileMenu) return;
         mobileMenu.classList.remove('active');
         if (mobileMenuTrigger) mobileMenuTrigger.setAttribute('aria-expanded', 'false');
-      };
+      }
 
-      const closeSearch = () => {
+      function closeSearch() {
         if (!searchWrapper) return;
         searchWrapper.classList.remove('active');
         if (searchOverlay) searchOverlay.classList.remove('active');
         if (searchTrigger) searchTrigger.setAttribute('aria-expanded', 'false');
-        // Clear search input and results
+        /* Clear search input and results */
         if (searchInput) searchInput.value = '';
         if (searchResults) searchResults.innerHTML = '';
-      };
+      }
 
-      const openSearch = () => {
+      function openSearch() {
         if (!searchWrapper) return;
         searchWrapper.classList.add('active');
         if (searchOverlay) searchOverlay.classList.add('active');
         if (searchTrigger) searchTrigger.setAttribute('aria-expanded', 'true');
         closeMobileMenu();
-        if (searchInput) setTimeout(() => searchInput.focus(), 100);
-      };
+        if (searchInput) setTimeout(function() { searchInput.focus(); }, 100);
+      }
 
-      // Helper for iOS touch events - debounced to prevent double firing
-      const addTapHandler = (element, handler) => {
+      /* Helper for iOS touch events - debounced to prevent double firing */
+      function addTapHandler(element, handler) {
         if (!element) return;
-        let lastTapTime = 0;
+        var lastTapTime = 0;
         
-        const wrappedHandler = (e) => {
-          const now = Date.now();
-          if (now - lastTapTime < 300) return; // Debounce 300ms
+        function wrappedHandler(e) {
+          var now = Date.now();
+          if (now - lastTapTime < 300) return; /* Debounce 300ms */
           lastTapTime = now;
           handler(e);
-        };
+        }
         
-        // For iOS: use touchend with passive listener
-        element.addEventListener('touchend', (e) => {
-          // Check if it's a tap (not a scroll)
+        /* For iOS: use touchend with passive listener */
+        element.addEventListener('touchend', function(e) {
+          /* Check if it's a tap (not a scroll) */
           if (e.cancelable) e.preventDefault();
           wrappedHandler(e);
         }, { passive: false });
         
-        // For desktop: use click
+        /* For desktop: use click */
         element.addEventListener('click', wrappedHandler);
-      };
+      }
 
       if (mobileMenuTrigger && mobileMenu) {
         mobileMenuTrigger.setAttribute('aria-expanded', 'false');
-        addTapHandler(mobileMenuTrigger, () => {
-          const isOpen = mobileMenu.classList.toggle('active');
+        addTapHandler(mobileMenuTrigger, function() {
+          var isOpen = mobileMenu.classList.toggle('active');
           mobileMenuTrigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
           if (searchWrapper) searchWrapper.classList.remove('active');
         });
@@ -162,7 +162,7 @@ layout: compress
       
       if (searchTrigger && searchWrapper) {
         searchTrigger.setAttribute('aria-expanded', 'false');
-        addTapHandler(searchTrigger, () => {
+        addTapHandler(searchTrigger, function() {
           if (searchWrapper.classList.contains('active')) {
             closeSearch();
           } else {
@@ -172,20 +172,20 @@ layout: compress
       }
       
       if (searchCancel) {
-        addTapHandler(searchCancel, () => {
+        addTapHandler(searchCancel, function() {
           closeSearch();
         });
       }
 
-      // Close search when clicking overlay
+      /* Close search when clicking overlay */
       if (searchOverlay) {
-        addTapHandler(searchOverlay, () => {
+        addTapHandler(searchOverlay, function() {
           closeSearch();
         });
       }
 
-      // Close menus on outside click only (not touchend to avoid conflicts)
-      document.addEventListener('click', (e) => {
+      /* Close menus on outside click only (not touchend to avoid conflicts) */
+      document.addEventListener('click', function(e) {
         if (navbar && !navbar.contains(e.target) && e.target !== searchOverlay) {
           closeMobileMenu();
         }
