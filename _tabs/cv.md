@@ -929,78 +929,95 @@ order: 3
 
 <script>
 (function() {
-  // Accordion functionality for project items
-  const projectItems = document.querySelectorAll('.project-item');
-  
-  projectItems.forEach(item => {
-    const summary = item.querySelector('.project-summary');
-    if (!summary) return;
+  // Wait for DOM to be ready
+  function initAccordion() {
+    // Accordion functionality for project items
+    const projectItems = document.querySelectorAll('.project-item');
     
-    // Click handler
-    const handleClick = (e) => {
-      // Don't trigger accordion if clicking on GitHub or PDF link
-      if (e.target.closest('.project-github-link') || e.target.closest('.project-pdf-link')) {
-        return;
-      }
+    if (projectItems.length === 0) {
+      // If elements not found, try again after a short delay
+      setTimeout(initAccordion, 100);
+      return;
+    }
+    
+    projectItems.forEach(item => {
+      const summary = item.querySelector('.project-summary');
+      if (!summary) return;
       
-      e.preventDefault();
-      const isActive = item.classList.contains('active');
-      
-      // Add click animation
-      item.classList.remove('clicked');
-      // Force reflow to restart animation
-      void item.offsetWidth;
-      item.classList.add('clicked');
-      
-      // Remove clicked class after animation completes
-      setTimeout(() => {
-        item.classList.remove('clicked');
-      }, 1000);
-      
-      // Close all other items (accordion behavior)
-      projectItems.forEach(otherItem => {
-        if (otherItem !== item) {
-          if (otherItem.classList.contains('active')) {
-            // Add no-hover class when closing
-            otherItem.classList.add('no-hover');
-            setTimeout(() => {
-              otherItem.classList.remove('no-hover');
-            }, 500);
-          }
-          otherItem.classList.remove('active');
-          const otherSummary = otherItem.querySelector('.project-summary');
-          if (otherSummary) {
-            otherSummary.setAttribute('aria-expanded', 'false');
-          }
+      // Click handler
+      const handleClick = (e) => {
+        // Don't trigger accordion if clicking on GitHub or PDF link
+        if (e.target.closest('.project-github-link') || e.target.closest('.project-pdf-link')) {
+          return;
         }
-      });
-      
-      // Toggle current item
-      if (isActive) {
-        item.classList.remove('active');
-        // Add no-hover class when closing current item
-        item.classList.add('no-hover');
-        setTimeout(() => {
-          item.classList.remove('no-hover');
-        }, 500);
-        summary.setAttribute('aria-expanded', 'false');
-      } else {
-        item.classList.add('active');
-        summary.setAttribute('aria-expanded', 'true');
-      }
-    };
-    
-    // Keyboard support (Enter and Space)
-    const handleKeyDown = (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
+        
         e.preventDefault();
-        handleClick(e);
-      }
-    };
-    
-    summary.addEventListener('click', handleClick);
-    summary.addEventListener('keydown', handleKeyDown);
-  });
+        const isActive = item.classList.contains('active');
+        
+        // Add click animation
+        item.classList.remove('clicked');
+        // Force reflow to restart animation
+        void item.offsetWidth;
+        item.classList.add('clicked');
+        
+        // Remove clicked class after animation completes
+        setTimeout(() => {
+          item.classList.remove('clicked');
+        }, 1000);
+        
+        // Close all other items (accordion behavior)
+        projectItems.forEach(otherItem => {
+          if (otherItem !== item) {
+            if (otherItem.classList.contains('active')) {
+              // Add no-hover class when closing
+              otherItem.classList.add('no-hover');
+              setTimeout(() => {
+                otherItem.classList.remove('no-hover');
+              }, 500);
+            }
+            otherItem.classList.remove('active');
+            const otherSummary = otherItem.querySelector('.project-summary');
+            if (otherSummary) {
+              otherSummary.setAttribute('aria-expanded', 'false');
+            }
+          }
+        });
+        
+        // Toggle current item
+        if (isActive) {
+          item.classList.remove('active');
+          // Add no-hover class when closing current item
+          item.classList.add('no-hover');
+          setTimeout(() => {
+            item.classList.remove('no-hover');
+          }, 500);
+          summary.setAttribute('aria-expanded', 'false');
+        } else {
+          item.classList.add('active');
+          summary.setAttribute('aria-expanded', 'true');
+        }
+      };
+      
+      // Keyboard support (Enter and Space)
+      const handleKeyDown = (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          handleClick(e);
+        }
+      };
+      
+      summary.addEventListener('click', handleClick);
+      summary.addEventListener('keydown', handleKeyDown);
+    });
+  }
+  
+  // Initialize when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initAccordion);
+  } else {
+    // DOM is already ready
+    initAccordion();
+  }
 })();
 </script>
 
