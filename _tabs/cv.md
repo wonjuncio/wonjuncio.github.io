@@ -928,76 +928,71 @@ order: 3
 </style>
 
 <script>
-console.log('=== CV 아코디언 스크립트 시작 ===');
-alert('스크립트 실행됨!');
-
-// Event Delegation - 이벤트를 document에서 잡아서 처리
-document.addEventListener('click', function(e) {
-  console.log('클릭됨:', e.target);
-  
-  // project-summary 클릭인지 확인
-  const summary = e.target.closest('.project-summary');
-  if (!summary) {
-    console.log('summary 없음, 무시');
-    return;
-  }
-  
-  // GitHub/PDF 링크 클릭 제외
-  if (e.target.closest('.project-github-link') || e.target.closest('.project-pdf-link')) {
-    return;
-  }
-  
-  e.preventDefault();
-  
-  const item = summary.closest('.project-item');
-  if (!item) return;
-  
-  const isActive = item.classList.contains('active');
-  
-  // Click animation
-  item.classList.remove('clicked');
-  void item.offsetWidth;
-  item.classList.add('clicked');
-  setTimeout(function() { item.classList.remove('clicked'); }, 1000);
-  
-  // Close all other items
-  var allItems = document.querySelectorAll('.project-item');
-  for (var i = 0; i < allItems.length; i++) {
-    var otherItem = allItems[i];
-    if (otherItem !== item) {
-      if (otherItem.classList.contains('active')) {
-        otherItem.classList.add('no-hover');
-        setTimeout(function() { otherItem.classList.remove('no-hover'); }, 500);
-      }
-      otherItem.classList.remove('active');
-      var otherSummary = otherItem.querySelector('.project-summary');
-      if (otherSummary) {
-        otherSummary.setAttribute('aria-expanded', 'false');
-      }
+(function() {
+  function initAccordion() {
+    var summaries = document.querySelectorAll('.project-summary');
+    if (summaries.length === 0) {
+      setTimeout(initAccordion, 100);
+      return;
     }
+    
+    summaries.forEach(function(summary) {
+      // 직접 onclick 속성 설정
+      summary.onclick = function(e) {
+        if (e.target.closest('.project-github-link') || e.target.closest('.project-pdf-link')) {
+          return true;
+        }
+        
+        e.preventDefault();
+        e.stopPropagation();
+        
+        var item = this.closest('.project-item');
+        if (!item) return;
+        
+        var isActive = item.classList.contains('active');
+        
+        // Click animation
+        item.classList.remove('clicked');
+        void item.offsetWidth;
+        item.classList.add('clicked');
+        setTimeout(function() { item.classList.remove('clicked'); }, 1000);
+        
+        // Close all other items
+        document.querySelectorAll('.project-item').forEach(function(otherItem) {
+          if (otherItem !== item) {
+            otherItem.classList.remove('active');
+            var otherSummary = otherItem.querySelector('.project-summary');
+            if (otherSummary) otherSummary.setAttribute('aria-expanded', 'false');
+          }
+        });
+        
+        // Toggle current item
+        if (isActive) {
+          item.classList.remove('active');
+          this.setAttribute('aria-expanded', 'false');
+        } else {
+          item.classList.add('active');
+          this.setAttribute('aria-expanded', 'true');
+        }
+        
+        return false;
+      };
+      
+      // Keyboard
+      summary.onkeydown = function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          this.click();
+        }
+      };
+    });
   }
   
-  // Toggle current item
-  if (isActive) {
-    item.classList.remove('active');
-    item.classList.add('no-hover');
-    setTimeout(function() { item.classList.remove('no-hover'); }, 500);
-    summary.setAttribute('aria-expanded', 'false');
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initAccordion);
   } else {
-    item.classList.add('active');
-    summary.setAttribute('aria-expanded', 'true');
+    initAccordion();
   }
-});
-
-// Keyboard support
-document.addEventListener('keydown', function(e) {
-  if (e.key !== 'Enter' && e.key !== ' ') return;
-  
-  var summary = e.target.closest('.project-summary');
-  if (!summary) return;
-  
-  e.preventDefault();
-  summary.click();
-});
+})();
 </script>
 
