@@ -163,10 +163,11 @@ $navbar-border: var(--border-color);
   bottom: 0;
   background: rgba(0, 0, 0, 0.5);
   z-index: 998;
+}
 
-  &.active {
-    display: block;
-  }
+// Show overlay only when search-wrapper is active
+:has(.search-wrapper.active) .search-overlay {
+  display: block;
 }
 
 .search-container {

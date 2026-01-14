@@ -112,7 +112,6 @@ layout: compress
       function closeSearch() {
         if (!searchWrapper) return;
         searchWrapper.classList.remove('active');
-        if (searchOverlay) searchOverlay.classList.remove('active');
         if (searchTrigger) searchTrigger.setAttribute('aria-expanded', 'false');
         /* Clear search input and results */
         if (searchInput) searchInput.value = '';
@@ -122,7 +121,6 @@ layout: compress
       function openSearch() {
         if (!searchWrapper) return;
         searchWrapper.classList.add('active');
-        if (searchOverlay) searchOverlay.classList.add('active');
         if (searchTrigger) searchTrigger.setAttribute('aria-expanded', 'true');
         closeMobileMenu();
         if (searchInput) setTimeout(function() { searchInput.focus(); }, 100);
