@@ -10,7 +10,7 @@ order: 3
     <div class="cv-title-section">
       <h1 class="cv-name">{{ site.social.name | default: site.title }}</h1>
       <p class="cv-role">Ph.D. Student in Materials Science & Engineering</p>
-      <p class="cv-focus">Graph ML for Materials · AI4Materials · Computational Discovery</p>
+      <p class="cv-focus">AI4Materials · Computational Discovery</p>
     </div>
     <a href="/assets/cv.pdf" target="_blank" class="cv-download-btn">
       <i class="fas fa-download"></i>
@@ -170,6 +170,7 @@ order: 3
             <span class="project-tag">Numerical Methods</span>
             <span class="project-tag">CFD</span>
             <span class="project-tag">MATLAB</span>
+            <span class="project-tag">Python</span>
           </div>
         </div>
       </div>
@@ -216,15 +217,15 @@ order: 3
     <div class="skills-compact">
       <div class="skill-row">
         <span class="skill-label">Programming</span>
-        <span class="skill-content">Python, C, C++, CUDA, MATLAB</span>
+        <span class="skill-content">Python · C/C++ · CUDA · MATLAB · Bash/Shell scripting</span>
       </div>
       <div class="skill-row">
         <span class="skill-label">ML/DL</span>
-        <span class="skill-content">PyTorch, TensorFlow, PyTorch Geometric</span>
+        <span class="skill-content">PyTorch · PyTorch Geometric · scikit-learn · TensorFlow</span>
       </div>
       <div class="skill-row">
         <span class="skill-label">AI4Materials</span>
-        <span class="skill-content">DFT, VASP, ASE, Pymatgen</span>
+        <span class="skill-content">VASP · Quantum ESPRESSO · ASE · Pymatgen · Matminer</span>
       </div>
     </div>
   </section>
@@ -758,27 +759,72 @@ order: 3
 .skills-compact {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.9rem;
 }
 
+/* 한 줄 한 줄이 카드처럼 '정돈'되어 보이게 */
 .skill-row {
   display: flex;
-  align-items: baseline;
-  gap: 1rem;
+  align-items: flex-start;
+  gap: 1.1rem;
+  padding: 0.45rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
 }
 
+.skill-row:last-child {
+  border-bottom: none;
+}
+
+/* 왼쪽 라벨: 더 라벨답게 (작게, 선명하게, 읽기 쉬운 위계) */
 .skill-label {
   flex-shrink: 0;
-  width: 130px;
-  font-size: 0.85rem;
+  width: 140px;
+  font-size: 0.78rem;
   font-weight: 600;
+  letter-spacing: 0.04em; 
+  text-transform: uppercase;
   color: var(--link-color);
+  opacity: 0.95;
 }
 
 .skill-content {
-  font-size: 0.9rem;
-  color: var(--text-color);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  word-spacing: 0.12em;
+  color: color-mix(in srgb, var(--text-color) 92%, white 8%);
 }
+
+/* 작은 디테일: 줄이 길어질 때 자연스럽게 줄바꿈 */
+.skill-content,
+.skill-label {
+  min-width: 0;
+}
+
+/* 너무 튀지 않는 '고급' hover */
+.skill-row {
+  transition: background 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+  border-radius: 10px;
+}
+
+.skill-row:hover {
+  background: rgba(255,255,255,0.03);
+  border-bottom-color: rgba(255,255,255,0.10);
+  transform: translateY(-1px);
+}
+
+/* 모바일에서 라벨 폭 자동 조정 */
+@media (max-width: 520px) {
+  .skill-row {
+    flex-direction: column;
+    gap: 0.35rem;
+    padding: 0.45rem 0;
+  }
+
+  .skill-label {
+    width: auto;
+  }
+}
+
 
 /* ================================
    Languages

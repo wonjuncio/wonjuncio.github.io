@@ -10,9 +10,6 @@
 - label: "Graph ML"
   icon: "fas fa-project-diagram"
 
-- label: "Computer Vision"
-  icon: "fas fa-eye"
-
 - label: "PyTorch"
   icon: "fab fa-python"
 

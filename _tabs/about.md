@@ -6,31 +6,52 @@ order: 4
 ---
 
 <div class="about-page-simple">
-  <div class="about-intro">
+  <!-- About -->
+  <div class="about-section">
     <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      I’m a Ph.D. student working on <strong>AI for Materials Science</strong>.
+      My research focuses on building machine learning models that respect
+      physics and remain practically useful, even when data is limited.
+    </p>
+    <p>
+      Outside the lab, I enjoy staying active and creative, usually while simulations are running in the background.
+    </p>
+    <div class="chips" aria-label="Interests">
+      <span class="chip"><i class="fas fa-dumbbell"></i> Gym</span>
+      <span class="chip"><i class="fas fa-guitar"></i> Guitar</span>
+      <span class="chip"><i class="fas fa-golf-ball-tee"></i> Golf</span>
+      <span class="chip"><i class="fas fa-whiskey-glass"></i> Whisky</span>
+    </div>
+    <p>
+      This site is a personal space where I document my work, ideas,
+      and things I find interesting along the way.
     </p>
   </div>
 
+  <!-- Research Philosophy -->
   <section class="about-section">
     <h2>Research Philosophy</h2>
     <p>
-      Excepteur sint occaecat cupidatat non proident,
-      sunt in culpa qui officia deserunt mollit anim id est laborum.
-      Integer in mauris eu nibh euismod gravida.
-      Duis ac tellus et risus vulputate vehicula.
-      Donec lobortis risus a elit.
+      I believe good research sits somewhere between <strong>rigor</strong> and
+      <strong>intuition</strong>. I enjoy problems where physics matters,
+      assumptions must be questioned, and results need to be trusted —
+      not just optimized.
+    </p>
+    <p>
+      I value approaches that are <strong>simple, explainable, and reproducible</strong>.
+      Progress is often slow, but steady improvement matters more than quick wins.
     </p>
   </section>
 
+  <!-- Beyond Research -->
   <section class="about-section">
     <h2>Beyond Research</h2>
     <p>
-      Curabitur pretium tincidunt lacus.
-      Nulla gravida orci a odio.
-      Nullam varius, turpis et commodo pharetra,
-      est eros bibendum elit, nec luctus magna felis sollicitudin mauris.
+      Having interests beyond research helps me keep perspective.
+      Training, music, sports, and small routines outside the lab
+      remind me that learning curves exist everywhere —
+      and that patience and consistency matter just as much off the screen
+      as they do in research.
     </p>
   </section>
 
@@ -63,27 +84,23 @@ order: 4
   margin: 0 auto;
 }
 
-.about-intro {
+.about-section {
   font-size: 1.05rem;
   line-height: 1.8;
   margin-bottom: 2.5rem;
 }
 
-.about-intro p {
+.about-section p {
   margin-bottom: 1rem;
 }
 
-.about-intro a {
+.about-section a {
   color: var(--link-color);
   text-decoration: none;
 }
 
-.about-intro a:hover {
+.about-section a:hover {
   text-decoration: underline;
-}
-
-.about-section {
-  margin-bottom: 2rem;
 }
 
 .about-section h2 {
@@ -93,12 +110,6 @@ order: 4
   margin: 0 0 1rem;
   padding-bottom: 0.5rem;
   border-bottom: 1px solid var(--border-color);
-}
-
-.about-section p {
-  font-size: 0.95rem;
-  line-height: 1.7;
-  color: var(--text-muted-color);
 }
 
 .about-links {
@@ -128,5 +139,25 @@ order: 4
 .about-link:hover {
   border-color: var(--link-color);
   text-decoration: none;
+}
+
+.chips{ display:flex; gap:0.5rem; flex-wrap:wrap; margin-bottom: 16px}
+.chip{
+  font-size:0.85em;
+  padding:0.25em 0.6em;
+  border:1px solid rgba(255,255,255,0.14);
+  border-radius:999px;
+  opacity:0.85;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.chip i {
+  font-size: 0.75em;      /* 중요: 텍스트보다 작게 */
+  opacity: 0.7;          /* 아이콘 존재감 줄이기 */
+}
+
+.chip:hover{
+  transform: translateY(-1px);
+  color: #e5e7eb;
 }
 </style>
