@@ -928,96 +928,68 @@ order: 3
 </style>
 
 <script>
-(function() {
-  // Wait for DOM to be ready
-  function initAccordion() {
-    // Accordion functionality for project items
-    const projectItems = document.querySelectorAll('.project-item');
-    
-    if (projectItems.length === 0) {
-      // If elements not found, try again after a short delay
-      setTimeout(initAccordion, 100);
-      return;
-    }
-    
-    projectItems.forEach(item => {
-      const summary = item.querySelector('.project-summary');
-      if (!summary) return;
-      
-      // Click handler
-      const handleClick = (e) => {
-        // Don't trigger accordion if clicking on GitHub or PDF link
-        if (e.target.closest('.project-github-link') || e.target.closest('.project-pdf-link')) {
-          return;
-        }
-        
-        e.preventDefault();
-        const isActive = item.classList.contains('active');
-        
-        // Add click animation
-        item.classList.remove('clicked');
-        // Force reflow to restart animation
-        void item.offsetWidth;
-        item.classList.add('clicked');
-        
-        // Remove clicked class after animation completes
-        setTimeout(() => {
-          item.classList.remove('clicked');
-        }, 1000);
-        
-        // Close all other items (accordion behavior)
-        projectItems.forEach(otherItem => {
-          if (otherItem !== item) {
-            if (otherItem.classList.contains('active')) {
-              // Add no-hover class when closing
-              otherItem.classList.add('no-hover');
-              setTimeout(() => {
-                otherItem.classList.remove('no-hover');
-              }, 500);
-            }
-            otherItem.classList.remove('active');
-            const otherSummary = otherItem.querySelector('.project-summary');
-            if (otherSummary) {
-              otherSummary.setAttribute('aria-expanded', 'false');
-            }
-          }
-        });
-        
-        // Toggle current item
-        if (isActive) {
-          item.classList.remove('active');
-          // Add no-hover class when closing current item
-          item.classList.add('no-hover');
-          setTimeout(() => {
-            item.classList.remove('no-hover');
-          }, 500);
-          summary.setAttribute('aria-expanded', 'false');
-        } else {
-          item.classList.add('active');
-          summary.setAttribute('aria-expanded', 'true');
-        }
-      };
-      
-      // Keyboard support (Enter and Space)
-      const handleKeyDown = (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          handleClick(e);
-        }
-      };
-      
-      summary.addEventListener('click', handleClick);
-      summary.addEventListener('keydown', handleKeyDown);
-    });
+// Event Delegation - 이벤트를 document에서 잡아서 처리
+document.addEventListener('click', function(e) {
+  // project-summary 클릭인지 확인
+  const summary = e.target.closest('.project-summary');
+  if (!summary) return;
+  
+  // GitHub/PDF 링크 클릭 제외
+  if (e.target.closest('.project-github-link') || e.target.closest('.project-pdf-link')) {
+    return;
   }
   
-  // Initialize when DOM is ready
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initAccordion);
-  } else {
-    // DOM is already ready
-    initAccordion();
+  e.preventDefault();
+  
+  const item = summary.closest('.project-item');
+  if (!item) return;
+  
+  const isActive = item.classList.contains('active');
+  
+  // Click animation
+  item.classList.remove('clicked');
+  void item.offsetWidth;
+  item.classList.add('clicked');
+  setTimeout(function() { item.classList.remove('clicked'); }, 1000);
+  
+  // Close all other items
+  var allItems = document.querySelectorAll('.project-item');
+  for (var i = 0; i < allItems.length; i++) {
+    var otherItem = allItems[i];
+    if (otherItem !== item) {
+      if (otherItem.classList.contains('active')) {
+        otherItem.classList.add('no-hover');
+        setTimeout(function() { otherItem.classList.remove('no-hover'); }, 500);
+      }
+      otherItem.classList.remove('active');
+      var otherSummary = otherItem.querySelector('.project-summary');
+      if (otherSummary) {
+        otherSummary.setAttribute('aria-expanded', 'false');
+      }
+    }
   }
-})();
+  
+  // Toggle current item
+  if (isActive) {
+    item.classList.remove('active');
+    item.classList.add('no-hover');
+    setTimeout(function() { item.classList.remove('no-hover'); }, 500);
+    summary.setAttribute('aria-expanded', 'false');
+  } else {
+    item.classList.add('active');
+    summary.setAttribute('aria-expanded', 'true');
+  }
+});
+
+// Keyboard support
+document.addEventListener('keydown', function(e) {
+  if (e.key !== 'Enter' && e.key !== ' ') return;
+  
+  var summary = e.target.closest('.project-summary');
+  if (!summary) return;
+  
+  e.preventDefault();
+  summary.click();
+});
 </script>
 
