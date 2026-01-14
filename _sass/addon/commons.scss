@@ -419,6 +419,10 @@ main {
     }
   }
 
+  img {
+    background: #fff;
+  }
+
   ol,
   ul {
     &:not([class]),
@@ -506,42 +510,7 @@ main {
 .img-link {
   color: transparent;
   display: inline-flex;
-}
-
-.shimmer {
-  overflow: hidden;
-  position: relative;
-  background: var(--img-bg);
-
-  &::before {
-    content: '';
-    position: absolute;
-    background: var(--shimmer-bg);
-    height: 100%;
-    width: 100%;
-    -webkit-animation: shimmer 2.2s infinite;
-    animation: shimmer 2.2s infinite;
-  }
-
-  @-webkit-keyframes shimmer {
-    0% {
-      transform: translateX(-100%);
-    }
-
-    100% {
-      transform: translateX(100%);
-    }
-  }
-
-  @keyframes shimmer {
-    0% {
-      transform: translateX(-100%);
-    }
-
-    100% {
-      transform: translateX(100%);
-    }
-  }
+  background: #fff;
 }
 
 .embed-video {

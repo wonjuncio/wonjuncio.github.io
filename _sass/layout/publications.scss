@@ -223,16 +223,6 @@
     transform: scale(1.1);
   }
 
-  // Disable shimmer effect on publication images
-  .pub-card > a.shimmer .pub-img::before,
-  .pub-img.shimmer::before,
-  .pub-img .shimmer::before {
-    display: none !important;
-    animation: none !important;
-    -webkit-animation: none !important;
-    content: none !important;
-  }
-
   // Card text
   .pub-title,
   .pub-authors,

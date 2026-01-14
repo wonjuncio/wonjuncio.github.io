@@ -6,7 +6,6 @@ const ATTR_DATA_SRC = 'data-src';
 const ATTR_DATA_LQIP = 'data-lqip';
 
 const cover = {
-  SHIMMER: 'shimmer',
   BLUR: 'blur'
 };
 
@@ -21,8 +20,6 @@ function handleImage() {
 
   if (this.hasAttribute(ATTR_DATA_LQIP)) {
     removeCover.call(this, cover.BLUR);
-  } else {
-    removeCover.call(this, cover.SHIMMER);
   }
 }
 
@@ -45,11 +42,7 @@ export function loadImg() {
   }
 
   // Images loaded from the browser cache do not trigger the 'load' event
-  $('article img[loading="lazy"]').each(function () {
-    if (this.complete) {
-      removeCover.call(this, cover.SHIMMER);
-    }
-  });
+  // (shimmer effect removed)
 
   // LQIPs set by the data URI or WebP will not trigger the 'load' event,
   // so manually convert the URI to the URL of a high-resolution image.
