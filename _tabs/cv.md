@@ -928,31 +928,29 @@ order: 3
 </style>
 
 <script>
+console.log('=== CV 아코디언 스크립트 시작 ===');
+alert('스크립트 실행됨!');
+
 // Event Delegation - 이벤트를 document에서 잡아서 처리
 document.addEventListener('click', function(e) {
-  console.log('[DEBUG] 클릭 이벤트 발생:', e.target);
+  console.log('클릭됨:', e.target);
   
   // project-summary 클릭인지 확인
   const summary = e.target.closest('.project-summary');
-  console.log('[DEBUG] summary:', summary);
-  if (!summary) return;
-  
-  console.log('[DEBUG] summary 찾음!');
-  
-  // GitHub/PDF 링크 클릭 제외
-  if (e.target.closest('.project-github-link') || e.target.closest('.project-pdf-link')) {
-    console.log('[DEBUG] 링크 클릭, 무시');
+  if (!summary) {
+    console.log('summary 없음, 무시');
     return;
   }
   
-  console.log('[DEBUG] 링크 아님, 계속 진행');
+  // GitHub/PDF 링크 클릭 제외
+  if (e.target.closest('.project-github-link') || e.target.closest('.project-pdf-link')) {
+    return;
+  }
+  
   e.preventDefault();
   
   const item = summary.closest('.project-item');
-  console.log('[DEBUG] item:', item);
   if (!item) return;
-  
-  console.log('[DEBUG] item 찾음! 토글 시작');
   
   const isActive = item.classList.contains('active');
   
